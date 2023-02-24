@@ -1,0 +1,93 @@
+{
+    "title": "Création de la classe principale",
+    "description": "Ce module permet d'apprendre à créer la classe principale du jeu",
+    "time": 5,
+    "tags": [
+        "Apprendre à créer une classe et à l'instancier"
+    ],
+    "content": [
+        {
+            "type": "title",
+            "text": "Introduction"
+        },
+        {
+            "type": "text",
+            "text": "Dans ce module, nous allons créer la classe principale du jeu. Cette classe sera la classe principale du jeu, elle contiendra toutes les informations du jeu, les cartes, les joueurs ainsi que les fonctions essentielles au bon fonctionnement du jeu."
+        },
+        {
+            "type": "title",
+            "text": "Création de la classe"
+        },
+        {
+            "type": "text",
+            "text": "Nous allons créer la classe principale du jeu. Elle contiendra le temps de jeu par tour, le numéro de la manche, le numéro du joueur en cours et le nombre de joueurs en vie. Elle contiendra également les cartes, les joueurs et les fonctions essentielles au bon fonctionnement du jeu."
+        },
+        {
+            "type": "code",
+            "language": "javascript",
+            "code": "class Game {\n    constructor() {\n        this.time = 30; // Temps de jeu\n        this.manche = 1; // Numéro de la manche\n        this.joueurs_en_cours = 0; // Numéro du joueur en cours\n        this.nb_joueurs_en_vie = 0; // Nombre de joueurs en vie\n    }\n}",
+            "description": "Classe principale du jeu"
+        },
+        {
+            "type": "title",
+            "text": "Création du jeu"
+        },
+        {
+            "type": "text",
+            "text": "Nous allons créer une fonction qui permet de créer le jeu."
+        },
+        {
+            "type": "code",
+            "language": "javascript",
+            "code": "let game; // Variable contenant l'instance du jeu \n// Fonction à appeler pour créer une instance du jeu \nfunction game(){\n    // Création du jeu\n    game = new Game();\n}",
+            "description": "Création d'une instance de jeu"
+        }
+
+    ],
+    "exercices": [
+        {
+            "type": "gapfill",
+            "title": "Compléter ce code",
+            "text": " %gap% maClasse {\n     %gap% () {\n         %gap% = %gap% ; \n    }  \n %gap% ",
+            "gaps": [
+                {
+                    "text": "class",
+                    "correct": 1
+                },
+                {
+                    "text": "constructor",
+                    "correct": 2
+                },
+                {
+                    "text": "this.variable",
+                    "correct": 3
+                },
+                {
+                    "text": "valeur",
+                    "correct": 4
+                },
+                {
+                    "text": "}",
+                    "correct": 5
+                }
+            ],
+            "height": "120px"
+
+        },
+        {
+            "type": "quiz",
+            "questions": [
+                {
+                    "question": "Comment instancier une classe ?",
+                    "answers": [
+                        "var variable = nouv Class();",
+                        "let variable = new Class();",
+                        "const variable = new Class;"
+                    ],
+                    "correct": 2,
+                    "explanation": "On utilise le mot clé new suivi du nom de la classe puis de parenthèses avant de mettre un point virgule."
+                }
+            ]
+        }
+    ]
+}

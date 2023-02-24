@@ -1,0 +1,8 @@
+/database/data_mysql
+/public/js
+/public/css
+/public/assets
+/node_modules
+.env
+
+mix-manifest.json

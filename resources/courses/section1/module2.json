@@ -1,0 +1,207 @@
+{
+    "title": "Introduction au JavaScript",
+    "description": "Ce module va permettre de comprendre les bases du JavaScript.",
+    "time": 10,
+    "tags": [
+        "Apprendre les bases du JavaScript"
+    ],
+    "content": [
+        {
+            "type": "title",
+            "text": "Introduction"
+        },
+        {
+            "type": "text",
+            "text": "Ce module va survoler le langage de programmation Javascript (ECMAScript) et vous montrer les structures basiques du langage. "
+        },
+        {
+            "type": "title",
+            "text": "Variables"
+        },
+        {
+            "type": "text",
+            "text": "En Javascript on définit une variable avec 3 mots clés principaux : <h>var</h>, <h>let</h> et <h>const</h>. "
+        },
+        {
+            "type": "list",
+            "content": [
+                "<code class=\"language-javascript font-bold\">var</code> : définit une variable globale.",
+                "<code class=\"language-javascript font-bold\">let</code> : définit une variable locale.",
+                "<code class=\"language-javascript font-bold\">const</code> : définit une variable constante (dont on ne changera pas la valeur)."
+            ]
+        },
+        {
+            "type": "title",
+            "text": "Types de variables"
+        },
+        {
+            "type": "text",
+            "text": "Les variables peuvent être de différents types. Voici les principaux :"
+        },
+        {
+            "type": "list",
+            "content": [
+                "Entiers (int) : <code class=\"language-javascript\">1, 2, 3, 4, 5, 6, 7, 8, 9, 10</code>.",
+                "Nombres à virgule (float) : <code class=\"language-javascript\">1.1, 2.2, 3.3, 4.4, 5.5, 6.6, 7.7, 8.8, 9.9, 10.10</code>.",
+                "Chaînes de caractères (string) : <code class=\"language-javascript\">'Hello world', 'Bonjour tout le monde'</code>.",
+                "Booléens (bool) : <code class=\"language-javascript\">true, false</code>.",
+                "Tableaux (array) : <code class=\"language-javascript\">[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]</code>.",
+                "Objet (object) : <code class=\"language-javascript\">{'name': 'John', 'age': 25}</code>."
+            ]
+        },
+        {
+            "type": "title",
+            "text": "Opérateurs"
+        },
+        {
+            "type": "text",
+            "text": "Les opérateurs sont des signes qui permettent d'effectuer des opérations sur les variables. "
+        },
+        {
+            "type": "list",
+            "content": [
+                "<code class=\"language-javascript font-bold\">+</code> : addition.",
+                "<code class=\"language-javascript font-bold\">-</code> : soustraction.",
+                "<code class=\"language-javascript font-bold\">*</code> : multiplication.",
+                "<code class=\"language-javascript font-bold\">/</code> : division.",
+                "<code class=\"language-javascript font-bold\">%</code> : reste de la division.",
+                "<code class=\"language-javascript font-bold\">++</code> : incrémentation.",
+                "<code class=\"language-javascript font-bold\">--</code> : décrémentation.",
+                "<code class=\"language-javascript font-bold\">+=</code> : addition et affectation.",
+                "<code class=\"language-javascript font-bold\">-=</code> : soustraction et affectation.",
+                "<code class=\"language-javascript font-bold\">*=</code> : multiplication et affectation.",
+                "<code class=\"language-javascript font-bold\">/=</code> : division et affectation.",
+                "<code class=\"language-javascript font-bold\">%=</code> : reste de la division et affectation.",
+                "<code class=\"language-javascript font-bold\">==</code> : égalité.",
+                "<code class=\"language-javascript font-bold\">===</code> : égalité stricte.",
+                "<code class=\"language-javascript font-bold\">!=</code> : différence.",
+                "<code class=\"language-javascript font-bold\">!==</code> : différence stricte.",
+                "<code class=\"language-javascript font-bold\">&&</code> : et logique.",
+                "<code class=\"language-javascript font-bold\">||</code> : ou logique.",
+                "<code class=\"language-javascript font-bold\">!</code> : non logique."
+            ]
+        },
+        {
+            "type": "title",
+            "text": "Fonctions"
+        },
+        {
+            "type": "text",
+            "text": "En Javascript, on définit des fonctions avec le mot clé <h>function</h>. "
+        },
+        {
+            "type": "code",
+            "language": "javascript",
+            "code": "// Fonction simple\nfunction fonctionSimple() {\n    // Exécution de la fonction\n} \n \n \n// Fonction avec paramètre\nfunction fonctionAvecParametre(parametre) {\n    // Exécution de la fonction\n}\n\n // Execution de fonctionSimple\nfonctionSimple();\n\n // Execution de fonctionAvecParametre\nfonctionAvecParametre(1);",
+            "description": "Différents types de fonctions"
+        },
+        {
+            "type": "title",
+            "text": "Affichage"
+        },
+        {
+            "type": "text",
+            "text": "Pour afficher du texte dans la console, on utilise la fonction <h>console.log</h>. "
+        },
+        {
+            "type": "code",
+            "language": "javascript",
+            "code": "console.log('Hello world'); // Affiche 'Hello World' dans la console\n\nlet name = 'John';\nconsole.log(name); // Affiche 'John' dans la console",
+            "description": "Différentes façons de faire pour afficher du texte dans la console."
+        },
+        {
+            "type": "title",
+            "text": "Conditions"
+        },
+        {
+            "type": "text",
+            "text": "Les conditions sont des opérateurs qui permettent de définir des conditions. On en retrouve principalement 3 : <h>if</h>, <h>else</h> et <h>else if</h>."
+        },
+        {
+            "type": "code",
+            "language": "javascript",
+            "code": "// Condition simple\nif (condition) {\n    // Exécution si condition est vraie\n} \n \n \n// Condition avec else\nif (condition) {\n    // Exécution si condition est vraie\n} else {\n    // Exécution si condition est fausse\n} \n \n \n// Condition avec else if\nif (condition) {\n    // Exécution si condition est vraie\n} else if (condition2) {\n    // Exécution si condition est fausse et condition2 est vraie\n} else {\n    // Exécution si condition est fausse et condition2 est fausse\n}",
+            "description": "Différentes façons de faire pour définir des conditions."
+        },
+        {
+            "type": "title",
+            "text": "Boucles"
+        },
+        {
+            "type": "text",
+            "text": "Les boucles sont des structures qui permettent de répéter des instructions. En Javascript, on en définit 3 principales : <h>for</h>, <h>forEach</h> et <h>while</h>. "
+        },
+        {
+            "type": "code",
+            "language": "javascript",
+            "code": "// Boucle for \nfor (let i = 0; i < 10; i++) {\n    // Exécution 10 fois de la boucle\n}\n \n \n// Boucle while \nlet i = 0;\nwhile (i < 10) {\n    // Exécution 10 fois de la boucle\n    i++;\n} \n \n \n// Boucle forEach \nconst tab = [1, 2, 3, 4, 5];\ntab.forEach((element) => {\n    // Exécution 5 fois de la boucle\n});",
+            "description": "Différents types de boucles"
+        },
+        {
+            "type": "title",
+            "text": "Classes"
+        },
+        {
+            "type": "text",
+            "text": "En Javascript, on définit des classes avec le mot clé <h>class</h>. "
+        },
+        {
+            "type": "code",
+            "language": "javascript",
+            "code": "// Classe simple\nclass ClasseSimple {\n    // Constructeur\n    constructor() {\n        // Exécution du constructeur\n    }\n \n    // Méthode\n    methode() {\n        // Exécution de la méthode\n    }\n}",
+            "description": "Une classe en Javascript"
+        },
+        {
+            "type": "title",
+            "text": "Pour aller plus loin"
+        },
+        {
+            "type": "text",
+            "text": "Nous vous remmandons de lire les cours suivants pour apprendre plus en détail le langage :"
+        },
+        {
+            "type": "list",
+            "content": [
+                "<a target=\"_blank\" href=\"https://vincentjuge1987.github.io/javascript.html#/\"><sb>Cours de Vincent Jugé :</sb></a> Cours rapide et intéressant sur les fondamentaux de JavaScript.",
+                "<a target=\"_blank\" href=\"https://openclassrooms.com/fr/courses/6175841-apprenez-a-programmer-avec-javascript\"><sb>Cours de OpenClassroom :</sb></a>  OpenClassroom est une référence française pour apprendre des langages de programmation.",
+                "<a target=\"_blank\" href=\"https://www.w3schools.com/js/\"><sb>Cours de W3School (en Anglais) :</sb></a> W3School est une référence pour les développeurs web. Il contient des tutoriels, des cours et des exercices pour apprendre à programmer en JavaScript. "
+            ]
+        }
+    ],
+    "exercices": [
+        {
+            "type": "gapfill",
+            "title": "Compléter ce code",
+            "text": " %gap% maFonction ( %gap% ) {\n     %gap% (parametre) %gap%  \n %gap% ",
+            "gaps": [
+                {
+                    "text": "function",
+                    "correct": 1
+                },
+                {
+                    "text": "parametre",
+                    "correct": 2
+                },
+                {
+                    "text": "console.log",
+                    "correct": 3
+                },
+                {
+                    "text": ";",
+                    "correct": 4
+                },
+                {
+                    "text": "}",
+                    "correct": 5
+                }
+            ]
+
+        },
+        {
+            "type": "writing",
+            "title": "Création d'une boucle",
+            "question": "Coder une boucle allant de 0 à 9 qui affiche l'index de la boucle",
+            "answer": "for (let i = 0; i < 10; i++) {\n    console.log(i);\n}"
+        }
+    ]
+}

@@ -1,0 +1,42 @@
+version: "3.8"
+
+services:
+  mysqldb:
+    image: mysql:8.0
+    container_name: db
+    restart: unless-stopped
+    environment:
+      MYSQL_PASSWORD: $MYSQLPASSWORD
+      MYSQL_DATABASE: $MYSQLDATABASE
+      MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+    command:
+      - --character-set-server=utf8mb4
+    ports:
+      - 3306:3306
+    volumes:
+      - ./database/data_mysql/config:/etc/mysql
+      - ./database/data_mysql/data:/var/lib/mysql
+      - ./database/data_mysql/backup/:/data_backup/data
+      - ./database/data_mysql/files:/var/lib/mysql-files
+    networks:
+      - app_net
+  app:
+    container_name: app
+    depends_on:
+      - mysqldb
+    build: .
+    restart: unless-stopped
+    env_file: ./.env
+    image: node-mysql-app
+    ports:
+      - $APP_PORT:$APP_PORT
+    stdin_open: true
+    tty: true
+    networks:
+      - app_net
+    volumes:
+      - ./:/app
+
+networks:
+    app_net:
+        driver: "bridge"

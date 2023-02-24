@@ -1,0 +1,255 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url('./shake.css');
+
+.clip-path {
+  clip-path: polygon(0 0, 100% 0, 100% 85%, 0% 100%);
+}
+
+/* Variables CSS */
+:root {
+  --fixed-text-color: #121212;
+  --fixed-bg-color: #191e28;
+  --main-bg-color: #191e28;
+  --secondary-bg-color: #ffffff;
+  --smooth-color: #d3d3d3;
+  --footer-color: #121212;
+  --main-text-color: #ffffff;
+  --secondary-text-color: #121212;
+  --nav-scrolled: #29313e;
+  --burger-gray-color: #cecece;
+  --main-color: #0084ff;
+  --accent-color: #d53a3e;
+  --main-font-family: "Montserrat", sans-serif;
+  --shadow: #99999996 0 0 16px;
+  --max-navbar-width: 1280px;
+  --max-navbar-height: 90px;
+  --max-content-width: 1280px;
+  --hobby-height: 310px;
+}
+
+/**
+* Quiz
+*/
+
+.quiz {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  gap: 1.25rem;
+  width: 100%;
+}
+
+.quiz .progress {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+  width: clamp(250px, 40%, 500px);
+  padding: 5px 10px;
+  background-color: white;
+  border-radius: 20px;
+  margin-bottom: 0.5rem;
+}
+
+.quiz .progress .progressbar {
+  width: 100%;
+  height: 6px;
+  position: relative;
+  z-index: 50;
+}
+
+.quiz .progress .bar1 {
+  background-color: var(--main-color);
+  position: absolute;
+  height: 100%;
+  border-radius: 25px;
+  z-index: 20;
+  transition: all 0.3s ease-in-out;
+}
+
+.quiz .progress .bar2 {
+  background-color: #e0e0e0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  border-radius: 25px;
+}
+
+.quiz .progress .progresstext {
+  font-size: 0.675rem;
+  font-weight: bold;
+  color: var(--fixed-text-color);
+}
+
+.quiz input[type="radio"] {
+  display: none;
+}
+
+.quiz .answers {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1.25rem;
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.quiz .answers > p {
+  display: flex;
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: white;
+}
+
+.quiz .answers > p > span {
+  font-weight: bold;
+  display: block;
+}
+
+.quiz .answer {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 20px;
+  background: white;
+  width: clamp(300px, 60%, 700px);
+  padding: 15px 20px;
+  cursor: pointer;
+}
+
+.quiz input[type="radio"]:checked + .answer {
+  background: linear-gradient(30deg, var(--main-color), var(--accent-color));
+  color: white;
+}
+
+.quiz .question {
+  font-weight: 600;
+  font-size: 1.5rem;
+  color: var(--main-text-color);
+  text-align: center;
+}
+
+.quiz .answer p {
+  color: var(--fixed-text-color);
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+.quiz input[type="radio"]:checked + .answer p {
+  color: white;
+}
+
+.quiz .answer span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #86a8c0aa;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  color: white;
+}
+
+.quiz > a.submit-quiz {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 20px;
+  background: white;
+  text-transform: uppercase;
+  font-weight: bold;
+  max-width: 300px;
+  padding: 10px 30px;
+  transition: all 0.2s;
+  margin-top: 0.5rem;
+  cursor: pointer;
+}
+
+/**
+* Writing
+*/
+
+.writing textarea,
+.gap-fill .gap-container {
+  font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
+  font-size: 1rem;
+}
+
+.writing pre.input,
+.writing > div {
+  @apply w-full;
+  height: 400px;
+}
+
+.writing .output,
+.writing .input {
+  @apply absolute top-0 left-0;
+  height: 400px;
+}
+
+.writing .correction-text > div{
+  width: 100%;
+  height: 100%;
+}
+
+.writing-blurred {
+  @apply blur-[6px] hover:blur-[4px];
+}
+
+.writing-blurred > *{
+  @apply pointer-events-none;
+}
+
+.code-snippet .code-toolbar {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.is-dragged {
+  opacity: 0.5;
+  transform: scale(0.8);
+  transition: opacity 0.25s ease-out, transform 0.15s ease-out;
+}
+
+.gap-dropover {
+    @apply bg-gray-800;
+}
+
+.gap-container .line-break{
+  width: 100%;
+}
+
+.information{
+  font-family: 'Work Sans', sans-serif;
+}
+
+.article .text, .article .title, .article .list{
+  @apply text-neutral-700;
+  font-family: 'Work Sans', sans-serif;
+}
+
+.article h{
+  @apply p-0.5 text-white bg-neutral-700;
+}
+
+.article m{
+  @apply font-medium;
+}
+
+.article sb{
+  @apply font-semibold;
+}
+
+
+.article .text a, .article .list a{
+  @apply font-medium underline cursor-pointer text-neutral-900 hover:text-black;
+}

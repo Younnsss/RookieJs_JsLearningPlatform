@@ -1,0 +1,45 @@
+{
+    "title": "Système de temps",
+    "description": "Apprendre à créer un système de temps",
+    "time": 2,
+    "tags": [
+        "Apprendre à créer un système de temps"
+    ],
+    "content": [
+        {
+            "type": "title",
+            "text": "Introduction"
+        },
+        {
+            "type": "text",
+            "text": "Pour réaliser notre jeu et éviter qu'un joueur passe trop de temps sur son tour, nous avons décidé d'utiliser un système de temps. Nous limitons donc le temps par joueur à 30 secondes."
+        },
+        {
+            "type": "title",
+            "text": "Le système de temps"
+        },
+        {
+            "type": "code",
+            "language": "javascript",
+            "code": "window.decompte = setInterval(() => {\n    game.time--; // On décrémente le temps\n    if (game.time === 0) {\n        game.tour_suivant(game.joueurs_en_cours); // On passe au tour suivant\n    }\n}, 1000);",
+            "description": "On définit une variable qui va décompter le temps"
+        }
+    ],
+    "exercices": [
+        {
+            "type": "quiz",
+            "questions": [
+                {
+                    "question": "Pourquoi ajouter un système de temps ?",
+                    "answers": [
+                        "Pour éviter qu'un joueur passe trop de temps sur son tour",
+                        "Pour chronomètrer le temps de la partie",
+                        "Parce que c'est cool"
+                    ],
+                    "correct": 1,
+                    "explanation": "Pour éviter qu'un joueur passe trop de temps sur son tour, nous avons décidé d'utiliser un système de temps. Nous limitons donc le temps par joueur à 30 secondes."
+                }
+            ]
+        }
+    ]
+}

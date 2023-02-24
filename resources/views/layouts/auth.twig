@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }} - Beginner.JS - Apprendre JavaScript</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel='stylesheet' href='/css/style.css'/> {% block css %}{% endblock %}
+    <link rel="canonical" href="https://beginnerjs.ga"/>
+    <meta name="author" content="Hoang-Viêt Lê, Younes Boutkrida et Noé Landré">
+    <meta name="keywords" content="JavaScript apprendre learn platforme platform jeu game blackjack cartes as cours modules sections piocher trèfle pique carreau coeur gratuit apprentissage">
+    <meta name="description" content="Beginner.JS est une plateforme gratuit et open-source pour apprendre le JavaScript en réalisant votre premier jeu de cartes">
+</head>
+<body class="h-screen bg-white">
+
+    <div class="flex flex-wrap w-full">
+
+        <!-- Login Section -->
+        <div class="flex flex-col w-full lg:w-1/2">
+
+            <div class="flex justify-center pt-6 lg:justify-start lg:pl-6 lg:-mb-12 xl:-mb-24">
+                <a href="/" class="p-4 text-2xl font-bold text-transparent from-rose-900 to-red-500 bg-gradient-to-r bg-clip-text">JS.Beginner</a>
+            </div>
+
+            <div class="flex flex-col justify-center px-8 pt-8 my-auto lg:justify-start lg:pt-0 lg:px-24 xl:px-32">
+                {% block body %}{% endblock %}
+            </div>
+
+        </div>
+
+        <!-- Image Section -->
+        <div class="w-1/2 shadow-2xl">
+            <img class="hidden object-cover w-full h-screen md:block" src="/img/login.jpg" alt="Image de Login">
+        </div>
+    </div>
+
+</body>
+</html>

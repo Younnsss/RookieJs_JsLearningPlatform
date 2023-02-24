@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jeu de cartes - Beginner.JS - Apprendre JavaScript</title>
+    <meta name="keywords" content="JavaScript apprendre learn platforme platform jeu game blackjack cartes as cours modules sections piocher trèfle pique carreau coeur gratuit apprentissage">
+	<meta name="description" content="Beginner.JS est une plateforme gratuit et open-source pour apprendre le JavaScript en réalisant votre premier jeu de cartes">
+	<meta name="author" content="Hoang-Viêt Lê, Younes Boutkrida et Noé Landré">
+    <link rel="canonical" href="https://beginnerjs.ga/game"/>
+    <link rel="stylesheet" href="css/croupier.css">
+    <link rel="stylesheet" href="css/style-jeu.css">
+	<script defer src="js/docs.js"></script>
+    <script defer src="js/script-jeu.js"></script>
+</head>
+<body class="game">
+    <div class="start-menu start-menu-overlay">
+        <h1>Jeu pour la plateforme Beginner.Js</h1>
+        <br />
+        <button type="button" onclick="window.game()">Lancement</button>
+    </div>
+
+	<div class="jeu">
+        <div class="chrono">
+            <div class="chrono-text">
+                20
+            </div>
+        </div>
+        <div class="hide corps_croupier"></div>
+
+        <div class="croupier">
+            
+            <div class="affichageCroupier">
+                <div class="score"></div>
+                <div class="vie" style="display : none"></div>
+                <div class="main"></div>
+            </div>
+
+
+        </div>
+
+        <div class="joueurs">
+            <div class="leaderboard"></div>
+            <div class="affichageJoueurs">
+                <div class="vie"></div>
+                <div class="main"></div>
+                <div class="score"></div>
+            </div>
+
+            <div class="boutons">
+                <button type="button">Piocher</button>
+                <button type="button">Terminer le tour</button>
+            </div>
+            
+        </div>
+
+
+    </div>
+
+    <div class="annonce">
+        <div class="txt"></div>
+    </div>
+
+    <div class="hide final">
+        <div class="resultat"></div>
+        <div class="gagnant"></div>
+        <div class="rejouer"></div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,16 @@
+{% extends 'layouts/app.twig' %}
+
+{% block body %}
+  <main class="h-screen w-full flex flex-col justify-center items-center bg-[#1A2238] z-50 absolute overflow-hidden">
+    <div class="flex flex-col items-center justify-center shake">
+      <h1 class="font-extrabold tracking-widest text-white text-9xl">{{status.number}}</h1>
+      <div class="bg-[#FF6A3D] px-2 text-sm rounded rotate-12 absolute text-white">
+        {{status.text}}
+      </div>
+    </div>
+    <a href="/" class="px-2 py-1 mt-2 text-gray-100 bg-blue-800 rounded">Page d'accueil</a>
+    <h1 class="text-gray-100">{{message}}</h1>
+    <h2 class="text-gray-100">{{error.status}}</h2>
+    <pre class="text-gray-100">{{error.stack}}</pre>
+  </main>
+{% endblock %}

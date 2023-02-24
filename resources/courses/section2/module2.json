@@ -1,0 +1,72 @@
+{
+    "title": "Tour d'un joueur",
+    "description": "Apprendre à créer un tour d'un joueur",
+    "time": 5,
+    "tags": [
+        "Apprendre à créer le tour d'un joueur"
+    ],
+    "content": [
+        {
+            "type": "title",
+            "text": "Introduction"
+        },
+        {
+            "type": "text",
+            "text": "Le tour d'un joueur doit comporter plusieurs étapes. Celui-ci va toujours avoir deux choix différents : piocher ou passer son tour. Si il choisit de piocher et que son score est supérieur à 21 alors on passe le tour sinon on lui laisse à nouveau ses deux choix."
+        },
+        {
+            "type": "title",
+            "text": "Création du tour d'un joueur"
+        },
+        {
+            "type": "text",
+            "text": "Deux boutons sont affichés à l'écran lors du tour d'un joueur. Le premier est le bouton <h>Piocher</h> et le second est le bouton <h>Passer son tour</h>."
+        },
+        {
+            "type": "text",
+            "text": "Le bouton <h>Piocher</h> permet au joueur de piocher une carte. Il faut donc créer une fonction qui va permettre de piocher une carte. Nous verrons cette fonction plus tard dans ce cours."
+        },
+        {
+            "type": "text",
+            "text": "Le bouton <h>Passer son tour</h> permet au joueur de passer son tour. Il faut donc créer une fonction qui va permettre de passer au tour suivant."
+        },
+        {
+            "type": "title",
+            "text": "Création de la fonction <h>Tour Suivant</h>"
+        },
+        {
+            "type": "code",
+            "language": "javascript",
+            "code": "class Game {\n    tour_suivant(joueur_en_cours) {\n       if (joueur_en_cours === game.joueurs.length - 1) {\n            game.decompte_points();\n\n            let nb_joueurs_en_vie = 0;\n            for (let index = 0; index < pseudo.length; index++) {\n                if (game.joueurs[index].vie > 0) {\n                    nb_joueurs_en_vie++;\n                }\n            }\n\n            game.nb_joueurs_en_vie = nb_joueurs_en_vie;\n\n            game.resultatTour();\n        } else if (game.joueurs[joueur_en_cours + 1].vie <= 0) {\n            game.tour_suivant(joueur_en_cours + 1);\n        } else if (game.joueurs[joueur_en_cours + 1].bot) {\n            game.tour_bot(joueur_en_cours + 1);\n            game.tour_suivant(joueur_en_cours + 1);\n        } else {\n            game.joueurs_en_cours = joueur_en_cours + 1;\n            game.time = 30;\n        }\n    }\n}",
+            "description": "Fonction permettant de passer au tour suivant"
+        },
+        {
+            "type": "text",
+            "text": "On définit rapidement une fonction pour décompter les points de chaque joueur que l'on réetudira par la suite."
+        },
+        {
+            "type": "code",
+            "language": "javascript",
+            "code": "decompte_points() {\n    for (let index = 0; index < pseudo.length; index++) {\n        if (((game.joueurs[index].score < game.croupier.score && (game.croupier.score < 21)) || (game.joueurs[index].score > 21)) && (game.joueurs[index].vie > 0) && (game.croupier.score < 21)) {\n            game.joueurs[index].vie -= 1;\n        }\n    }\n}",
+            "description": "Fonction permettant de décompter les points de chaque joueur"
+        }
+    ],
+    "exercices": [
+        {
+            "type": "quiz",
+            "questions": [
+                {
+                    "question": "Combien d'actions peut effectuer un joueur dans un tour ?",
+                    "answers": [
+                        "2",
+                        "3",
+                        "4",
+                        "5"
+                    ],
+                    "correct": 1,
+                    "explanation": "Il y a deux actions possibles : piocher une carte ou passer son tour."
+                }
+            ]
+        }
+    ]
+}

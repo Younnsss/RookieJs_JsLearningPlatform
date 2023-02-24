@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="UTF-8"?> 
+<urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
+<url>
+	<loc>https://beginnerjs.ga/</loc>
+	<lastmod>2022-05-30T18:19:47+01:00</lastmod>
+	<priority>1.0</priority>
+	<changefreq>weekly</changefreq>
+</url>
+<url>
+	<loc>https://beginnerjs.ga/login</loc>
+	<lastmod>2022-05-30T18:19:47+01:00</lastmod>
+	<priority>1.0</priority>
+	<changefreq>weekly</changefreq>
+</url>
+<url>
+	<loc>https://beginnerjs.ga/register</loc>
+	<lastmod>2022-05-30T18:19:47+01:00</lastmod>
+	<priority>1.0</priority>
+	<changefreq>weekly</changefreq>
+</url>
+<url>
+	<loc>https://beginnerjs.ga/game</loc>
+	<lastmod>2022-05-30T18:19:47+01:00</lastmod>
+	<priority>1.0</priority>
+	<changefreq>weekly</changefreq>
+</url>
+<url>
+	<loc>https://beginnerjs.ga/courses</loc>
+	<lastmod>2022-05-30T18:19:47+01:00</lastmod>
+	<priority>1.0</priority>
+	<changefreq>weekly</changefreq>
+</url>
+<url>
+	<loc>https://beginnerjs.ga/courses/1/1</loc>
+	<lastmod>2022-05-30T18:19:50+01:00</lastmod>
+	<priority>0.1</priority>
+	<changefreq>weekly</changefreq>
+</url>
+<url>
+	<loc>https://beginnerjs.ga/courses/1/2</loc>
+	<lastmod>2022-05-30T18:19:50+01:00</lastmod>
+	<priority>0.1</priority>
+	<changefreq>weekly</changefreq>
+</url>
+<url>
+	<loc>https://beginnerjs.ga/courses/2/1</loc>
+	<lastmod>2022-05-30T18:19:50+01:00</lastmod>
+	<priority>0.1</priority>
+	<changefreq>weekly</changefreq>
+</url>
+<url>
+	<loc>https://beginnerjs.ga/courses/2/2</loc>
+	<lastmod>2022-05-30T18:19:50+01:00</lastmod>
+	<priority>0.1</priority>
+	<changefreq>weekly</changefreq>
+</url>
+<url>
+	<loc>https://beginnerjs.ga/courses/3/1</loc>
+	<lastmod>2022-05-30T18:19:50+01:00</lastmod>
+	<priority>0.1</priority>
+	<changefreq>weekly</changefreq>
+</url>
+<url>
+	<loc>https://beginnerjs.ga/courses/3/2</loc>
+	<lastmod>2022-05-30T18:19:50+01:00</lastmod>
+	<priority>0.1</priority>
+	<changefreq>weekly</changefreq>
+</url>
+<url>
+	<loc>https://beginnerjs.ga/courses/4/1</loc>
+	<lastmod>2022-05-30T18:19:50+01:00</lastmod>
+	<priority>0.1</priority>
+	<changefreq>weekly</changefreq>
+</url>
+<url>
+	<loc>https://beginnerjs.ga/courses/4/2</loc>
+	<lastmod>2022-05-30T18:19:50+01:00</lastmod>
+	<priority>0.1</priority>
+	<changefreq>weekly</changefreq>
+</url>
+</urlset>

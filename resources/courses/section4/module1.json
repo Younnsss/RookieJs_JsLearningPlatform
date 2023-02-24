@@ -1,0 +1,156 @@
+{
+    "title": "Ajout des joueurs",
+    "description": "Dans ce module, nous allons utiliser la classe game créée précédemment pour créer notre système de joueur.",
+    "time": 15,
+    "tags": [
+        "Revoir l'utilisation des classes en Javascript",
+        "Utilisation de paramètres dans des fonctions"
+    ],
+    "content": [
+        {
+            "type": "title",
+            "text": "Introduction"
+        },
+        {
+            "type": "text",
+            "text": "Bienvenue dans ce module qui va vous apprendre et vous amener à comprendre comment ajouter des joueurs dans notre jeu et leurs caractéristiques avec une instance de classe."
+        },
+        {
+            "type": "title",
+            "text": "Rappel du module précédent"
+        },
+        {
+            "type": "text",
+            "text": "Nous avons vu dans le module précédent la création d'une classe Game qui va nous servir à créer l'entièreté de notre jeu.<br>Voici le code que nous avons réalisé :"
+        },
+        {
+            "type": "code",
+            "language": "javascript",
+            "code": "class Game {\n    constructor() {\n        this.time = 30; // Temps de jeu\n        this.manche = 1; // Numéro de la manche\n        this.joueurs_en_cours = 0; // Numéro du joueur en cours\n        this.nb_joueurs_en_vie = 0; // Nombre de joueurs en vie\n    }\n}",
+            "description": "Classe 'Game' que nous avons réalisé dans le module précédent"
+        },
+        {
+            "type": "title",
+            "text": "Ajout d'une propriété"
+        },
+        {
+            "type": "text",
+            "text": "Pour créer un système de joueur, nous allons rajouter à cette classe une propriété supplémentaire : la propriété <h>Joueur</h>"
+        },
+        {
+            "type": "text",
+            "text": "Cette propriété va être une liste vide (pour l'instant) pour stocker les différents joueurs de la partie dans cette propriété là."
+        },
+        {
+            "type": "code",
+            "language": "javascript",
+            "code": "class Game {\n    constructor() {\n    //Code précédent//\n    this.joueurs = []; // Création d'une liste vide qui va stocker nos joueurs.\n   }\n}",
+            "description": "Création de la propriété qui est une liste vide..."
+        },
+        {
+            "type": "title",
+            "text": "Création de la classe Joueur"
+        },
+        {
+            "type": "text",
+            "text": "Dans cette liste, nous allons stocker des variables bien spécifiques. Cette liste va stocker des instances de classes de type <h>Joueur</h> qui va avoir des propriétés qui stockeront l'ensemble des informations nécessaires sur un joueur (utilisables par les autre fonctions de notre jeu)."
+        },
+        {
+            "type": "text",
+            "text": "La liste des propriétés de la classe Joueur sont :"
+        },
+        {
+            "type": "list",
+            "content": [
+                "L'identifiant : le nom du joueur",
+                "L'inventaire : une liste qui va stocker les cartes piochées par le joueur",
+                "La vie : la vie du joueur",
+                "Le score : Les points gagnés par le joueur",
+                "La propriété <h>Bot</h> : pour définir si ce joueur est un IA ou non"
+            ]
+        },
+        {
+            "type": "text",
+            "text": "Avant de nous lancer dans la création de cette classe, nous allons dénifir arbitrairement 1 variable qui est la suivante :"
+        },
+        {
+            "type": "code",
+            "language": "javascript",
+            "code": "const pseudo = [\n      {\n         id: 'nono', \n         type: 'human',\n      },\n      {\n        id: 'younsss',\n        type: 'human',\n      },\n      {\n       id: 'viet',\n       type: 'human',\n      },\n      {\n       id: 'robot',\n      type: 'bot',\n      },\n];",
+            "description": "Variable 'pseudo' utilisée lors du développement du jeu de carte par nous-même..."
+        },
+        {
+            "type": "text",
+            "text": "Cette variable est vouée à changer selon le nombre de joueur et les nombres de joueurs IA dans le jeu. Vous pouvez créer une fonction qui permettra de choisir le nombre de joueurs dans la partie (dont les joueurs IA)..."
+        },
+        {
+            "type": "title",
+            "text": "Fonction constructor() avec des paramètres"
+        },
+        {
+            "type": "text",
+            "text": "Pour créer cette classe, on va utiliser la variable crée arbritrairement pour construire la classe Joueur. La fonction constructor va se dôter de 2 paramètres qui seront :"
+        },
+        {
+            "type": "list",
+            "content": [
+                "pseudo : qui va correspondre à l'identifiant (id) de la variable pseudo",
+                "bot : qui va correspondre au type du jouueur (joueur humain ou bot)"
+            ]
+        },
+        {
+            "type": "text",
+            "text": "Le paramètre pseudo va intervenir dans la propriété identifiant alors que le paramètre bot va être utilisé dans la propriété Bot."
+        },
+        {
+            "type": "text",
+            "text": "On aura notre classe Joueur qui ressemblera à :"
+        },
+        {
+            "type": "code",
+            "language": "javascript",
+            "code": "class Joueur {\n   constructor(pseudo, bot) {\n        this.identifiant = pseudo; // Identifiant du joueur\n       // Autres propriétés //\n       this.bot = bot === 'bot'; // Is this player a bot\n}",
+            "description": "Comment créer la classe Joueur..."
+        },
+        {
+            "type": "title",
+            "text": "Compléter le code dans la classe Game"
+        },
+        {
+            "type": "text",
+            "text": "Il reste juste une dernière fonction à ajouter dans le constructor de la classe Game qui permet de remplir la liste vide de la propriété joueurs avec les instances de classe Joueur avec les propriétés de chaque joueur (son identifiant, son score, etc...)"
+        },
+        {
+            "type": "text",
+            "text": "Pour ce faire, on va créer une boucle qui va parcourir tout l'objet <h>pseudo</h> afin de créer une classe Joueur pour chaque joueur défini par cet objet. On va prendre l'identifiant (id) et le type du chaque joueur et on va utiliser comme paramètres pour la fonction constructor réalisé au-dessus.<br> On obtient alors le code suivant :"
+        },
+        {
+            "type": "code",
+            "language": "javascript",
+            "code": "for (let index = 0; index < pseudo.length; index++) {\n    const nom = pseudo[index].id; // Identifiant du joueur\n    const {type} = pseudo[index]; // Type du joueur\n   this.joueurs.push(new Joueur(nom, type)); // On ajoute le joueur\n},",
+            "description" : "Cette boucle est dans la fonction constructor de la classe Game pour initaliser les joueurs à chaque fois qu'on créé une variable de la classe Game..."
+        },
+        {
+            "type": "title",
+            "text": "Création d'une fonction pour gérer le tour d'un bot"
+        },
+        {
+            "type": "text",
+            "text": "Une fonction qui permet de jouer le tour d'un bot. Cette fonction va être utilisée dans la fonction constructor de la classe Game et va permettre de gérer le tour d'un bot."
+        },
+        {
+            "type": "code",
+            "language": "javascript",
+            "code": "tour_bot(bot) {\n    while (game.joueurs[bot].score < 18) {\n        game.joueurs[bot].inventaire.push(game.cards.shift()); // On ajoute une carte au joueur\n        const position = game.joueurs[bot].inventaire.length - 1; // On calcule la position de la carte\n        game.joueurs[bot].score += game.joueurs[bot].inventaire[position].valeur; // On calcule le score du joueur\n    }\n}",
+            "description": "Fonction permettant de gérer le tour d'un bot"
+        }
+    ],
+    "exercices": [
+        {
+            "type": "writing",
+            "title": "Compléter la fonction constructor de la classe Joueur",
+            "question": "Essayer de compléter la classe Joueur en remplissant la partie // Autres propriétés // dans l'exemple donnée auparavant par les propriétés de notre classe Joueur énoncées dans ce module.<br><br>Rappel :<br><br> Les autres propriétés de la classe Joueur sont : inventaire (une liste vide), vie (égale à 1) et score (égale à 0)",
+            "answer": "class Joueur {\n    constructor(pseudo, bot) {\n      this.identifiant = pseudo;\n      this.inventaire = [];\n      this.vie = 1;\n      this.score = 0;\n      this.bot = bot === 'bot';\n   }\n}"
+        }
+    ]
+}

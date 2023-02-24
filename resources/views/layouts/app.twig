@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="keywords" content="JavaScript apprendre learn platforme platform jeu game blackjack cartes as cours modules sections piocher trèfle pique carreau coeur gratuit apprentissage">
+		<meta name="description" content="Beginner.JS est une plateforme gratuit et open-source pour apprendre le JavaScript en réalisant votre premier jeu de cartes">
+		<meta name="author" content="Hoang-Viêt Lê, Younes Boutkrida et Noé Landré">
+		<title>{{ title }} - RookieJs - Apprendre JavaScript</title>
+		<link rel="canonical" href="https://beginnerjs.ga/{{ app }}"/>
+		<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+		<link rel='stylesheet' href='/css/style.css'/> {% block css %}{% endblock %}
+		</head>
+		<body>
+			<header class="absolute z-10 w-full transition duration-300 ease-in-out">
+				<div class="flex justify-between max-w-6xl px-5 mx-auto sm:px-6">
+
+					<a href="/" class="flex items-center justify-center font-mono text-2xl font-black text-transparent cursor-pointer md:text-4xl {{ whitenav ? "from-slate-50 to-gray-300" : "from-rose-900 to-red-500"}} bg-gradient-to-r bg-clip-text ">RookieJs</a>
+
+					<div class="flex items-center justify-between h-16 md:h-20">
+
+
+						<div class="flex-shrink-0 mr-4"></div>
+
+						<nav class="flex flex-wrap items-center justify-end">
+							{% if auth %}
+								<a href="/logout" class="flex items-center px-5 py-3 text-sm font-medium  
+								{{ whitenav ? "text-gray-50" : "text-gray-600"}} transition duration-150 ease-in-out hover:text-gray-900 md:text-base">Déconnexion</a>
+								<a href="/me" class="px-2 py-1 ml-1 text-sm text-gray-200 bg-gradient-to-r from-rose-900 to-red-500 md:ml-3 btn-sm hover:bg-gray-800 md:text-base md:py-2 md:px-4 hover:opacity-80">Mon compte</a>
+							{% else %}
+								<a href="/login" class="flex items-center px-2 py-1 text-sm font-medium {{ whitenav ? "text-gray-50" : "text-gray-600"}} transition duration-150 ease-in-out md:px-5 md:py-3 md:text-base">Se connecter</a>
+								<a href="/register" class="px-2 py-1 ml-1 text-sm font-bold text-gray-200 bg-gradient-to-r from-rose-900 to-red-500 md:ml-3 md:text-base md:py-2 md:px-4 btn-sm hover:opacity-80">Créer un compte</a>
+							{% endif %}
+							
+						</nav>
+
+					</div>
+				</div>
+			</header>
+			{% block body %}{% endblock %}
+			<footer class="text-gray-600 body-font">
+				<div class="flex flex-col items-center justify-between px-12 py-5 sm:flex-row">
+					<a href="/" class="flex items-center justify-center font-medium text-gray-900 title-font md:justify-start">
+						<span class="ml-3 text-xl font-bold text-transparent bg-gradient-to-r bg-clip-text from-rose-900 to-red-500">RookieJs</span>
+					</a>
+					<p class="mt-4 text-sm text-gray-500 sm:ml-4 sm:pl-4">© 2022 RookieJs —
+						<a href="" class="ml-1 text-gray-600" rel="noopener noreferrer" target="_blank">Y. Boutkrida N. Landré et H.V. Lê</a>
+					</p>
+				</div>
+			</footer>
+			<script defer src="/js/main.js"></script>
+			{% block js %}{% endblock %}
+		</body>
+	</html>

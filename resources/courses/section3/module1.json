@@ -1,0 +1,88 @@
+{
+    "title": "Génération des cartes",
+    "description": "Apprendre à générer des cartes en JavaScript",
+    "time": 8,
+    "tags": [
+        "Générer des cartes à jouer en JavaScript"
+    ],
+    "content": [
+        {
+            "type": "title",
+            "text": "Introduction"
+        },
+        {
+            "type": "text",
+            "text": "Dans ce module, nous allons apprendre à générer des cartes en JavaScript. Nous allons voir comment créer des cartes, et comment les afficher. Nous utiliserons la base de Julia Rechkunova (<a href=\"https://codepen.io/jughosta/pen/NqgZOZ\">Codepen</a>) que nous avons améliorer pour ce projet."
+        },
+        {
+            "type": "title",
+            "text": "Création de la classe pour les cartes"
+        },
+        {
+            "type": "text",
+            "text": "Dans un premier temps, nous allons créer une classe pour gérer nos cartes. Celle-ci va accueillir les informations nécessaires à la création d'une carte : "
+        },
+        {
+            "type": "code",
+            "language": "javascript",
+            "code": "// Classe Cartes \nclass Card {\n    // Constructeur\n    constructor(valeur, type, lettre) {\n        this.valeur = valeur;\n        this.type = type;\n        this.lettre = lettre;\n    }\n}",
+            "description": "Classe pour les cartes"
+        },
+        {
+            "type": "title",
+            "text": "Création de la base de données des cartes"
+        },
+        {
+            "type": "text",
+            "text": "Nous allons créer une base de données des cartes avec A pour l'as, V pour le valet, C pour le verso de la carte, ..."
+        },
+        {
+            "type": "code",
+            "language": "javascript",
+            "code": "window.listeCartes= [\n    {\n        lettre: 'A',\n        html: '<section class=\"card card--type\" value=\"A\"><div class=\"card__inner card__inner--centered\"><div class=\"card__column\"><div class=\"card__symbol\"></div><div class=\"card__symbol\"></div><div class=\"card__symbol\"></div></div></div></section>',\n    },\n    {\n        lettre: '2',\n        html: '<section class=\"card card--type\" value=\"2\"><div class=\"card__inner card__inner--centered\"><div class=\"card__column\"><div class=\"card__symbol\"></div><div class=\"card__symbol\"></div></div></div></section>',\n    },\n    {\n        lettre: '3',\n        html: '<section class=\"card card--type\" value=\"3\"><div class=\"card__inner card__inner--centered\"><div class=\"card__column\"><div class=\"card__symbol\"></div><div class=\"card__symbol\"></div><div class=\"card__symbol\"></div></div></div></section>',\n    },\n    {\n        lettre: '4',\n        html: '<section class=\"card card--type\" value=\"4\"><div class=\"card__inner\"><div class=\"card__column\"><div class=\"card__symbol\"></div><div class=\"card__symbol\"></div></div><div class=\"card__column\"><div class=\"card__symbol\"></div><div class=\"card__symbol\"></div></div></div></section>',\n    },\n    {\n        lettre: '5',\n        html: '<section class=\"card card--type\" value=\"5\"><div class=\"card__inner\"><div class=\"card__column\"><div class=\"card__symbol\"></div><div class=\"card__symbol\"></div></div><div class=\"card__column card__column--centered\"><div class=\"card__symbol\"></div></div><div class=\"card__column\"><div class=\"card__symbol\"></div><div class=\"card__symbol\"></div></div></div></section>',\n    },\n    {\n        lettre: '6',\n        html: '<section class=\"card card--type\" value=\"6\"><div class=\"card__inner\"><div class=\"card__column\"><div class=\"card__symbol\"></div><div class=\"card__symbol\"></div><div class=\"card__symbol\"></div></div><div class=\"card__column card__column--centered\"><div class=\"card__symbol\"></div></div><div class=\"card__column\"><div class=\"card__symbol\"></div><div class=\"card__symbol\"></div></div></div></section>',\n    },\n    {\n        lettre: '7',\n        html: '<section class=\"card card--type\" value=\"7\"><div class=\"card__inner\"><div class=\"card__column\"><div class=\"card__symbol\"></div><div class=\"card__symbol\"></div><div class=\"card__symbol\"></div></div><div class=\"card__column card__column--centered\"><div class=\"card__symbol\"></div></div><div class=\"card__column\"><div class=\"card__symbol\"></div><div class=\"card__symbol\"></div></div></div></section>',\n    },\n    {\n        lettre: '8',\n        html: '<section class=\"card card--type\" value=\"8\"><div class=\"card__inner\"><div class=\"card__column\"><div class=\"card__symbol\"></div><div class=\"card__symbol\"></div><div class=\"card__symbol\"></div></div><div class=\"card__column card__column--centered\"><div class=\"card__symbol\"></div><div class=\"card__symbol\"></div></div><div class=\"card__column\"><div class=\"card__symbol\"></div><div class=\"card__symbol\"></div></div></div></section>',\n    },\n    {\n        lettre: '9',\n        html: '<section class=\"card card--type\" value=\"9\"><div class=\"card__inner\"><div class=\"card__column\"><div class=\"card__symbol\"></div><div class=\"card__symbol\"></div><div class=\"card__symbol\"></div></div><div class=\"card__column card__column--centered\"><div class=\"card__symbol\"></div><div class=\"card__symbol\"></div></div><div class=\"card__column\"><div class=\"card__symbol\"></div><div class=\"card__symbol\"></div></div></div></section>',\n    },\n    {\n        lettre: '10',\n        html: '<section class=\"card card--type\" value=\"10\"><div class=\"card__inner\"><div class=\"card__column\"><div class=\"card__symbol\"></div><div class=\"card__symbol\"></div><div class=\"card__symbol\"></div></div><div class=\"card__column card__column--centered\"><div class=\"card__symbol\"></div><div class=\"card__symbol\"></div></div><div class=\"card__column\"><div class=\"card__symbol\"></div><div class=\"card__symbol\"></div></div></div></section>',\n    },\n    {\n        lettre: 'V',\n        html: '<section class=\"card card--type\" value=\"V\"> <div class=\"card__inner card__inner--centered\"> <img class=\"card-svg\" src=\"{{ svg }}\" alt=\"Card SVG\"/> </div></section>',\n    },\n    {\n        lettre: 'D',\n        html: '<section class=\"card card--type\" value=\"D\"> <div class=\"card__inner card__inner--centered\"> <img class=\"card-svg\" src=\"{{ svg }}\" alt=\"Card SVG\"/> </div></section>',\n    },\n    {\n        lettre: 'R',\n        html: '<section class=\"card card--type\" value=\"R\"> <div class=\"card__inner card__inner--centered\"> <img class=\"card-svg\" src=\"{{ svg }}\" alt=\"Card SVG\"/> </div></section>',\n    },\n    {\n        lettre: 'C',\n        html: '<section class=\"card card--type\"> <div class=\"card__inner card__inner--centered\"> <img class=\"card-svg\" src=\"assets/carte_verso.svg\" alt=\"Card SVG\"/> </div> </section>',\n    },\n];",
+            "description": "Base de donnée des cartes"
+        },
+        {
+            "type": "title",
+            "text": "Génération d'un jeu de 52 cartes"
+        },
+        {
+            "type": "text",
+            "text": "Nous allons générer un jeu de 52 cartes en utilisant la base de données précedemment générée. Ainsi que 2 autres listes : une liste des valeurs de carte et une liste des symboles de carte."
+        },
+        {
+            "type": "code",
+            "language": "javascript",
+            "code": "// Configuration\nconst numeros = [\n  {\n        valeur: 1,\n        lettre: 'A',\n    },\n    {\n        valeur: 2,\n        lettre: '2',\n    },\n    {\n        valeur: 3,\n        lettre: '3',\n    },\n    {\n        valeur: 4,\n        lettre: '4',\n    },\n    {\n        valeur: 5,\n        lettre: '5',\n    },\n    {\n        valeur: 6,\n        lettre: '6',\n    },\n    {\n        valeur: 7,\n        lettre: '7',\n    },\n    {\n        valeur: 8,\n        lettre: '8',\n    },\n    {\n        valeur: 9,\n        lettre: '9',\n    },\n    {\n        valeur: 10,\n        lettre: '10',\n    },\n    {\n        valeur: 10,\n        lettre: 'V',\n    },\n    {\n        valeur: 10,\n        lettre: 'D',\n    },\n    {\n        valeur: 10,\n        lettre: 'R',\n    },\n];\n\nconst symboles = [\n    {\n        type: 'coeur',\n    },\n    {\n        type: 'pique',\n    },\n    {\n        type: 'carreau',\n    },\n    {\n        type: 'trefle',\n    },\n];",
+            "description": "Deux nouvelles listes"
+        },
+        {
+            "type": "text",
+            "text": "Désormais créons la fonction qui va générer le jeu de cartes."
+        },   
+        {
+            "type": "code",
+            "language": "javascript",
+            "code": "class Game {\n    constructor() {\n        [...]\n        this.cards = [];\n        this.generer_cartes();\n    }\n\n    [...]\n\n    generer_cartes() {\n        // On s'assure que la liste de cartes est vide\n        this.cards = [];\n        // On crée le jeu de cartes\n        for (let i = 0; i < numeros.length; i++) {\n            const {lettre, valeur} = numeros[i]; // Lettre et valeur de la carte\n            // On crée la carte pour chaque symbole\n            for (let j = 0; j < symboles.length; j++) {\n                const {type} = symboles[j]; // Type de la carte\n                this.cards.push(new Card(valeur, type, lettre)); // On ajoute la carte\n            }\n        }\n    }\n}",
+            "description": "Fonction qui va générer le jeu de cartes"
+        }
+    ],
+    "exercices": [
+        {
+            "type": "quiz",
+            "questions": [
+                {
+                    "question": "Quel est le nom de la fonction qui va générer le jeu de cartes ?",
+                    "answers": [
+                        "generer_cartes",
+                        "generer_jeu",
+                        "generer_jeu_cartes",
+                        "generer_jeu_cartes_52"
+                    ],
+                    "correct": 1,
+                    "explanation": "La fonction generer_cartes() va générer le jeu de cartes."
+                }
+            ]
+        }
+    ]
+}

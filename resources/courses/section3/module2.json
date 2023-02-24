@@ -1,0 +1,106 @@
+{
+    "title": "Mélange d'un deck de carte avec un algorithme",
+    "description": "Dans ce module, nous allons voir comment on crée un algorithme pour distribuer des cartes d'un deck aléatoirement, comme si on reproduisait une distribution de carte d'un deck mélangé dans la vraie vie !",
+    "time": 8,
+    "tags": [
+        "Voir un algorithme de mélange"
+    ],
+    "content": [
+        {
+            "type": "title",
+            "text": "Introduction"
+        },
+        {
+            "type": "text",
+            "text": "Dans ce module, on va vous apprendre à réaliser un algorithme de distribution aléatoire de cartes d'un deck à partir d'un algorithme connu : <strong><u>L'algorithme de mélange de Fisher-Yates.</strong></u>"
+        },
+        {
+            "type": "title",
+            "text": "Rappel de notre structure de carte"
+        },
+        {
+            "type": "text",
+            "text": "Notre système de carte est contenu dans la propriété : <h>cards</h> de notre classe Game. Cette propriété est un tableau qui contient 52 instances de classe \"Card\" qui sont nos cartes que nous avons défini dans le module précédent."
+        },
+        {
+            "type": "code",
+            "language": "javascript",
+            "code": "class Game {\n    constructor() {\n        [...]\n        this.cards = [];\n        this.generer_cartes();\n    }\n\n    [...]\n\n    generer_cartes() {\n        // On s'assure que la liste de cartes est vide\n        this.cards = [];\n        // On crée le jeu de cartes\n        for (let i = 0; i < numeros.length; i++) {\n            const {lettre, valeur} = numeros[i]; // Lettre et valeur de la carte\n            // On crée la carte pour chaque symbole\n            for (let j = 0; j < symboles.length; j++) {\n                const {type} = symboles[j]; // Type de la carte\n                this.cards.push(new Card(valeur, type, lettre)); // On ajoute la carte\n            }\n        }\n    }\n}",
+            "description": "Rappel du code final du module précédent"
+        },
+        {
+            "type": "title",
+            "text": "Algorithme de Fisher-Yates"
+        },
+        {
+            "type": "text",
+            "text": "Cet algoritme a pour but de mélanger aléatoirement un nombre fini d'élément d'un tableau. Dans notre système de carte, on voit bien que cet algorithme est vraiment adéquat."
+        },
+        {
+            "type": "text",
+            "text": "L'énoncé de l'algorithme est la suivante :"
+        },
+        {
+            "type": "code",
+            "language": "javascript",
+            "code": "Pour i allant de 1 à n - 1 faire :\n   j <= entier aléatoire entre 0 et i\n   échanger a[j] et a[i]\nFinpour",
+            "description": "Algorithme de Fisher-Yates"
+        },
+        {
+            "type": "text",
+            "text": "D'autre algorithme de mélange existe mais celui-là est le plus facile à comprendre."
+        },
+        {
+            "type": "title",
+            "text": "Écriture en Javascript de cet algorithme"
+        },
+        {
+            "type": "text",
+            "text": "Nous allons passer à l'écriture de l'algorithme. Cependant, il est important de préciser :"
+        },
+        {
+            "type": "list",
+            "content": [
+                "que la valeur n est obtenue avec <h>this.cards.length</h> qui renvoie la taille du tableau (ici 52)",
+                "que pour obtenir une valeur entière d'un nombre, on utilise <h>Math.floor()</h>",
+                "que pour obtenir une valeur aléatoire entre 0 et 1, on utilise <h>Math.random()</h>"
+            ]
+        },
+        {
+            "type": "text",
+            "text": "Ces 3 éléments vont nous permettrent de construire cet algorithme."
+        },
+        {
+            "type": "code",
+            "language": "javascript",
+            "code": "for (let i = this.cards.length - 1; i > 0; i--) {\n    const j = Math.floor(Math.random() * (i + 1));\n    [this.cards[i], this.cards[j]] = [this.cards[j], this.cards[i]];\n}",
+            "description": "Algorithme de Fisher-Yates en Javascript"
+        },
+        {
+            "type": "title",
+            "text": "Suite du système de carte..."
+        },
+        {
+            "type": "text",
+            "text": "Dans la deuxième partie du système de carte, nous allons voir comment on peut simuler le tour de distribution des cartes à l'ensemble des joueurs et le système de pioche. Mais pour cela, il faudrait au préalable comment on crée notre système de joueurs et surtout comment on crée leur inventaire de cartes."
+        }
+    ],
+    "exercices": [
+        {
+            "type": "quiz",
+            "questions": [
+                {
+                    "question": "Quel est le nom de l'algorithme de mélange ?",
+                    "answers": [
+                        "L'algorithme de Poisson-Mate",
+                        "L'algorithme de Pêcheur-Pates",
+                        "L'algorithme de Fisher-Yates",
+                        "L'algorithme de Fish-Lates"
+                    ],
+                    "correct": 3,
+                    "explanation": "Fisher-Yates est le nom de l'algorithme de mélange."
+                }
+            ]
+        }
+    ]
+}

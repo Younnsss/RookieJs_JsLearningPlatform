@@ -1,0 +1,89 @@
+{
+    "title": "Bien démarrer le projet",
+    "description": "Ce module va permettre de débuter la mise en place d'un projet de développement web. Il va vous permettre de découvrir les différents outils et les différentes techniques de développement web.",
+    "time": 6,
+    "tags": [
+        "Comprendre HTML/CSS/JavaScript",
+        "Mise en place d'un projet"
+    ],
+    "content": [
+        {
+            "type": "title",
+            "text": "Introduction"
+        },
+        {
+            "type": "text",
+            "text": "Bienvenue dans ce cours qui va vous apprendre et vous amener à comprendre comment réaliser un projet web. Ce projet va se reposer sur 3 technologies : <h>HTML, CSS et JavaScript</h>. Celles-ci sont majoritairement utilisées pour le développement de site internet."
+        },
+        {
+            "type": "list",
+            "content": [
+                "<sb>HTML (HyperText Markup Language) :</sb> C'est le langage de balisage utilisé pour décrire la structure des pages web.",
+                "<sb>CSS (Cascading Style Sheet) :</sb> C'est le langage de mise en forme utilisé pour styliser et designer les pages web en utilisant la structure HTML.",
+                "<sb>JavaScript (ECMAScript) :</sb> C'est le langage de programmation utilisé pour développer les interactions d'une page web (exemple : réaliser une action au clic de l'utilisateur)."
+            ]
+        },
+        {
+            "type": "text",
+            "text": "Nous allons à travers ce cours nous concentrer sur le côté JavaScript du projet. Ce projet consiste à réaliser un jeu de cartes dans le style du BlackJack. Pour cela nous allons couvrir les étapes les plus importantes menant à la mise en place de celui-ci."
+        },
+        {
+            "type": "title",
+            "text": "Règles du jeu à mettre en place"
+        },
+        {
+            "type": "text",
+            "text": "Une partie de blackjack se joue entre le croupier et un certain nombre de joueurs. L’objectif de chaque joueur est de battre le croupier, ces derniers ne s’affrontent pas entre eux. C’est pour cela qu’il n’est pas dérangeant que chacun des joueurs voie les cartes de ses adversaires. Les joueurs doivent obtenir un score supérieur à celui du croupier tout en ne dépassant pas 21 : il faut donc s’approcher le plus possible de 21 sans dépasser cette valeur."
+        },
+        {
+            "type": "text",
+            "text": "Pour ce faire, chaque joueur reçoit deux cartes et peut ensuite en tirer d’autres aléatoirement dans la pioche. Cependant, si son score dépasse 21, alors il a automatiquement perdu. D’un autre côté, le croupier reçoit au début de la partie une carte face visible et une autre face cachée."
+        },
+        {
+            "type": "text",
+            "text": "Nous avons structuré le jeu en manches. À chaque début de manche, le croupier reçoit une carte face visible et une autre face cachée. Ensuite les joueurs constituent leur set de cartes l’un après l’autre : ils reçoivent d’abord deux cartes piochées de manière aléatoire, ensuite ils ont la possibilité de piocher d’autres cartes ou de simplement passer leur tour. Ils ont 10 secondes pour réaliser leur choix, le compteur se relance lorsque le joueur choisit de piocher, il est clairement visible en haut de la page."
+        },
+        {
+            "type": "text",
+            "text": "Chaque carte apporte un certain nombre de points correspondant à sa valeur, par exemple : l’as donne 1 point, le 3 de pique apporte 3 points, le 8 de trèfle et le 8 de cœur donnent 8 points, enfin les valets, reine et roi apportent 10 points chacun."
+        },
+        {
+            "type": "text",
+            "text": "Afin de retirer le système de pari d’argent du Blackjack, nous avons mis en place un système de vie pour les joueurs. Tous les joueurs commencent avec un certain nombre de vies personnalisable."
+        },
+        {
+            "type": "text",
+            "text": "À l’issue d’une manche, un joueur perd une vie si son score est inférieur au croupier ou si son score est supérieur à 21. La partie se termine lorsqu’il ne reste qu’un seul joueur en vie, il peut donc ne pas y avoir de gagnant si tous les joueurs perdent en même temps."
+        },
+        {
+            "type": "title",
+            "text": "Outils"
+        },
+        {
+            "type": "text",
+            "text": "Pour bien démarrer, il vous suffit de disposer d'un ordinateur et d'un navigateur web récent tel que (Brave, Mozilla Firefox, Google Chrome, etc.)."
+        },
+        {
+            "type": "text",
+            "text": "Pour éditer le code, vous pouvez utiliser un éditeur de texte comme Notepad ou <a target=\"_blank\" href=\"https://notepad-plus-plus.org/downloads/\">Notepad++</a>. Cependant, nous vous conseillons de télécharger un IDE comme <a target=\"_blank\" href=\"https://code.visualstudio.com/\">Visual Studio Code</a>, <a href=\"https://atom.io/\" target=\"_blank\">Atom</a> ou <a href=\"https://www.sublimetext.com/\" target=\"_blank\">Sublime Text</a>. Celui-ci va vous permettre de bénéficier de fonctionnalités plus avancées comme la gestion de dossier, la gestion d'historique, l'auto-complétion, la colorisation syntaxique, etc."
+        }
+    ],
+    "exercices": [
+        {
+            "type": "quiz",
+            "questions": [
+                {
+                    "question": "Lequel de ces logiciels est utilisé pour éditer le code avec colorisation syntaxique ?",
+                    "answers": [
+                        "Microsoft Word",
+                        "Notion",
+                        "Bloc-Notes",
+                        "Visual Studio Code"
+                    ],
+                    "correct": 4,
+                    "explanation": "<b>Microsoft Word</b> fait partie de la suite de bureautique Microsoft Office, un ensemble de logiciels dont un traitement de texte, un tableur...<br/><b>Notion</b> permet de prendre des notes, entre autres.<br/>Le <b>Bloc-Notes (Notepad)</b> permet certes d'éditer du code, mais n'est pas adapté car ne possède pas de colorisation syntaxique.<br/><b>Visual Studio Code</b> est un IDE, donc adapté à l'édition de code."
+                }
+            ]
+        }
+    ]
+}

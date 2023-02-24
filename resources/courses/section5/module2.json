@@ -1,0 +1,45 @@
+{
+    "title": "Système de pioche",
+    "description": "Dans ce module, nous allons voir comment créer un système de pioche",
+    "time": 3,
+    "tags": [
+        "Créer un système de pioche"
+    ],
+    "content": [
+        {
+            "type": "title",
+            "text": "Introduction"
+        },
+        {
+            "type": "text",
+            "text": "Nous allons voir comment créer un système de pioche."
+        },
+        {
+            "type": "title",
+            "text": "Fonction de la pioche"
+        },
+        {
+            "type": "code",
+            "language": "javascript",
+            "code": "class Game{\n  // Piocher une carte\n  pioche(joueur_en_cours){\n    if(game.joueurs[joueur_en_cours].score > 21){ // Si le score du joueur est supérieur à 21\n      return;\n    }\n\n    game.joueurs[joueur_en_cours].inventaire.push(game.cards.shift()); // On ajoute une carte au joueur\n    const position = game.joueurs[joueur_en_cours].inventaire.length - 1; // On calcule la position de la carte\n    game.joueurs[joueur_en_cours].score += game.joueurs[joueur_en_cours].inventaire[position].valeur; // On calcule le score du joueur\n    if(game.joueurs[joueur_en_cours].score > 21){ // Si le score du joueur est supérieur à 21\n      game.tour_suivant(joueur_en_cours); // On passe au tour suivant\n    } else {\n      game.time = 30; // On remet le temps à 30\n    }\n  }\n}",
+            "description": "La fonction pioche permet de piocher une carte."
+        }
+    ],
+    "exercices": [
+        {
+            "type": "quiz",
+            "questions": [
+                {
+                    "question": "Quand appelle-t-on la fonction pioche ?",
+                    "answers": [
+                        "Lorsque le joueur clique sur le bouton \"piocher\"",
+                        "Lorsque le joueur clique sur le bouton \"jouer\"",
+                        "Lorsque le joueur clique sur le bouton \"passer son tour\""
+                    ],
+                    "correct": 1,
+                    "explanation": "Lorsque le joueur clique sur le bouton piocher, on appelle la fonction pioche."
+                }
+            ]
+        }
+    ]
+}

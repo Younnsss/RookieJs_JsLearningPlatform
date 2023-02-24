@@ -1,0 +1,238 @@
+{% extends 'layouts/app.twig' %}
+
+{% block css %}
+	<link rel='stylesheet' href='/css/style-jeu.css'/>
+{% endblock %}
+
+{% block body %}
+
+	<section
+		class="relative flex items-center justify-center h-screen">
+		<div class="-z-20 top-4 md:top-8 absolute hidden sm:flex items-start justify-center w-full h-[13.75rem] overflow-hidden">
+			<section class="card card--pique -rotate-12 translate-y-10 !-mr-32" value="2">
+				<div class="card__inner card__inner--centered">
+					<div class="card__column">
+						<div class="card__symbol"></div>
+						<div class="card__symbol"></div>
+					</div>
+				</div>
+			</section>
+			<section class="card card--coeur -rotate-6 translate-y-5 !-mr-32" value="8">
+				<div class="card__inner">
+					<div class="card__column">
+						<div class="card__symbol"></div>
+						<div class="card__symbol"></div>
+						<div class="card__symbol"></div>
+					</div>
+					<div class="card__column card__column--centered">
+						<div class="card__symbol card__symbol--big"></div>
+						<div class="card__symbol card__symbol--big"></div>
+					</div>
+					<div class="card__column">
+						<div class="card__symbol"></div>
+						<div class="card__symbol"></div>
+						<div class="card__symbol"></div>
+					</div>
+				</div>
+			</section>
+			<section class="card card--pique !-mr-32 translate-y-2" value="A">
+				<div class="card__inner card__inner--centered ace">
+					<div class="card__symbol"></div>
+				</div>
+			</section>
+			<section class="card card--trefle rotate-6 translate-y-5 !-mr-32" value="5">
+				<div class="card__inner">
+					<div class="card__column">
+						<div class="card__symbol"></div>
+						<div class="card__symbol"></div>
+					</div>
+					<div class="card__column card__column--centered">
+						<div class="card__symbol"></div>
+					</div>
+					<div class="card__column">
+						<div class="card__symbol"></div>
+						<div class="card__symbol"></div>
+					</div>
+				</div>
+			</section>
+			<section class="translate-y-10 card card--carreau rotate-12" value="10">
+				<div class="card__inner">
+					<div class="card__column">
+						<div class="card__symbol"></div>
+						<div class="card__symbol"></div>
+						<div class="card__symbol card__symbol--rotated"></div>
+						<div class="card__symbol"></div>
+					</div>
+					<div class="card__column card__column--centered">
+						<div class="card__symbol card__symbol--big"></div>
+						<div class="card__symbol card__symbol--big"></div>
+					</div>
+					<div class="card__column">
+						<div class="card__symbol"></div>
+						<div class="card__symbol"></div>
+						<div class="card__symbol card__symbol--rotated"></div>
+						<div class="card__symbol"></div>
+					</div>
+				</div>
+			</section>
+		</div>
+
+		<div class="w-full px-4 sm:mt-36 md:mt-56 sm:px-6">
+			<div class="flex flex-col">
+
+
+				<div class="max-w-6xl mx-auto text-center">
+					<h1 class="mb-4 text-5xl font-extrabold tracking-tighter md:text-6xl leading-tighter">Une introduction au
+						<span class="text-transparent md:text-7xl from-rose-900 bg-clip-text to-red-500 bg-gradient-to-r">Javascript</span>
+					</h1>
+					<div class="max-w-3xl mx-auto ">
+						<p class="mb-8 text-xl text-gray-600" data-aos="zoom-y-out" data-aos-delay="150">Découvrez ce langage au travers de la réalisation d'un jeu de cartes</p>
+						<div class="flex flex-row justify-center gap-5" data-aos="zoom-y-out" data-aos-delay="300">
+							<a class="px-4 py-2 font-bold text-white rounded-md bg-gradient-to-tr hover:opacity-80 from-rose-900 to-red-500 btn" href="/game">Apercu du jeu</a>
+							<a class="px-4 py-2 font-bold text-white bg-gray-900 rounded-md hover:opacity-80" href="#ancre">En savoir plus</a>
+						</div>
+					</div>
+				</div>
+				<div class="justify-between hidden ml-24 mr-60 sm:flex">
+					<section class="card card--trefle -rotate-12 translate-y-10 !-mr-32" value="R">
+						<div class="card__inner card__inner--centered">
+							<img class="card-svg" src="/assets/trefle_R.svg" alt="Card SVG"/>
+						</div>
+					</section>
+
+					<section class="card card--coeur rotate-12 translate-y-10 !-mr-32" value="D">
+						<div class="card__inner card__inner--centered">
+							<img class="card-svg" src="/assets/coeur_D.svg" alt="Card SVG"/>
+						</div>
+					</section>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="absolute flex flex-col items-center justify-center text-gray-400 md:bottom-8 bottom-5 animate-bounce">
+		<a href="#ancre" class="">Défiler la page</a>
+		<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 md:w-8 md:h-8" fill="#323232" viewbox="0 0 24 24" stroke="currentColor" stroke-width="2">
+			<path stroke-linecap="round" stroke-linejoin="round" d="M17 13l-5 5m0 0l-5-5m5 5V6"/>
+		</svg>
+	</div>
+</section>
+
+<section class="mb-12 text-gray-600 body-font xl:px-8">
+<div class="container flex ml-auto mr-auto">
+	<div class="container flex flex-wrap justify-between h-full px-5 py-12 mx-auto">
+		<div class="w-full mb-10 overflow-hidden rounded-lg lg:w-1/2 lg:mb-0 lg:pr-12">
+			<div class="flex flex-col content-center w-full">
+				<h2 id="ancre" class="mb-4 text-2xl font-medium text-gray-900 sm:text-3xl title-font">Qu'est ce que
+					<span class="font-bold text-transparent bg-gradient-to-r from-rose-900 bg-clip-text to-red-500">RookieJs ?</span>
+				</h2>
+				<p class="self-end py-3 text-base leading-relaxed">RookieJs est une plateforme d'apprentissage du langage web Javascript. <br> Notre but est de vous offrir une première introduction au Javascript de manière ludique et simple à travers un fil conducteur : la création d'un jeu de carte qui est le Blackjack ! <br> <br>Notre plateforme est constituée de plusieurs modules, eux-mêmes divisés en notions qui permettent d'apprendre les notions de Javascript mais surtout de comprendre les principales parties du code du jeu. <br>À la fin de la formation, vous pouvez obtenir un code-source du jeu que nous avons réalisé et que vous pouvez modifier à votre guise.
+				</p>
+			</div>
+		</div>
+		<div class="flex flex-col flex-wrap -mb-10 text-center lg:w-1/2 lg:pl-12 lg:text-left">
+			<div class="flex flex-col items-center justify-center gap-5 mb-5 lg:items-start lg:flex-row">
+				<div class="inline-flex items-center justify-center w-16 h-12 text-red-800 bg-red-100 rounded-full lg:w-12">
+					<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-6 h-6" viewbox="0 0 24 24">
+						<path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+					</svg>
+				</div>
+				<div class="w-full">
+					<h2 class="mb-3 text-lg font-medium text-gray-900 title-font">Un apprentissage ludique</h2>
+					<p class="text-base leading-relaxed">Cette plateforme a été réalisé pour vous offrir une formation originale et stimulante à travers la réalisation d'un jeu de carte.</p>
+				</div>
+			</div>
+			<div class="flex flex-col items-center justify-center gap-5 mb-5 lg:items-start lg:flex-row">
+				<div class="inline-flex items-center justify-center w-16 h-12 text-red-800 bg-red-100 rounded-full lg:w-12">
+					<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-6 h-6" viewbox="0 0 24 24">
+						<circle cx="6" cy="6" r="3"></circle>
+						<circle cx="6" cy="18" r="3"></circle>
+						<path d="M20 4L8.12 15.88M14.47 14.48L20 20M8.12 8.12L12 12"></path>
+					</svg>
+				</div>
+				<div class="w-full">
+					<h2 class="mb-3 text-lg font-medium text-gray-900 title-font">Un apprentissage intéractif</h2>
+					<p class="text-base leading-relaxed">Des exercices réalisés pour vous afin d'assimiler plus facilement les bases du Javascript et son utilisation dans un cas concret : la réalisation du jeu.</p>
+
+				</div>
+			</div>
+			<div class="flex flex-col items-center justify-center gap-5 mb-5 lg:items-start lg:flex-row">
+				<div class="inline-flex items-center justify-center w-16 h-12 text-red-800 bg-red-100 rounded-full lg:w-12">
+					<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-6 h-6" viewbox="0 0 24 24">
+						<path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"></path>
+						<circle cx="12" cy="7" r="4"></circle>
+					</svg>
+				</div>
+				<div class="w-full">
+					<h2 class="mb-3 text-lg font-medium text-gray-900 title-font">Un suivi</h2>
+					<p class="text-base leading-relaxed">Vous pouvez vous créer un compte afin de sauvegarder votre progression quand vous voulez et de reprendre la formation à où vous nous avez laissez.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="container flex w-2/3 m-auto">
+			<div class="flex flex-col content-center justify-center w-full text-center">
+				<a href="courses" class="px-2 py-2 mt-2 font-bold text-white rounded-lg bg-gradient-to-tr from-rose-900 to-red-500 sm:text-3xl">Cliquer ici pour commencer votre premier module !</a>
+			</div>
+		</div>
+</section>
+
+<section class="relative flex justify-center mb-4 overflow-hidden text-gray-600 body-font">
+
+	<div class="items-center justify-start hidden mr-4 lg:flex">
+		<section class="translate-y-5 card card--pique -rotate-12" value="A">
+			<div class="flex items-center card__inner card__inner--centered ace">
+				<div class="card__symbol"></div>
+			</div>
+		</section>
+	</div>
+
+	<div class="container w-full p-2 sm:w-4/5 lg:w-3/5">
+		<div class="w-full mb-12 text-center">
+			<h2 class="mb-4 text-2xl font-medium text-gray-900 sm:text-3xl title-font">Nous Contacter</h2>
+			<p class="mx-auto text-base leading-relaxed ">Nous sommes toujours à l'écoute aux retours que vous nous envoyez afin d'améliorer cet outil.</p>
+		</div>
+		<div class="mx-auto ">
+
+			<form class="flex flex-wrap -m-2" action="/contact" method="post">
+				<div class="w-1/2 p-2">
+					<div class="relative">
+						<label for="name" class="text-sm font-bold leading-7 text-gray-600">Nom / Prénom</label>
+						<input type="text" id="name" name="name" placeholder="Robert Dupond" class="w-full px-3 py-1 text-base leading-8 text-gray-700 transition-colors duration-200 ease-in-out bg-opacity-50 border border-gray-300 rounded outline-none bg-slate-200 focus:border-red-500 focus:bg-white focus:ring-2 focus:ring-red-200">
+					</div>
+				</div>
+				<div class="w-1/2 p-2">
+					<div class="relative">
+						<label for="email" class="text-sm font-bold leading-7 text-gray-600">Email</label>
+						<input type="email" id="email" name="email" placeholder="test@exemple.com" class="w-full px-3 py-1 text-base leading-8 text-gray-700 transition-colors duration-200 ease-in-out bg-opacity-50 border border-gray-300 rounded outline-none bg-slate-200 focus:border-red-500 focus:bg-white focus:ring-2 focus:ring-red-200">
+					</div>
+				</div>
+				<div class="w-full p-2">
+					<div class="relative">
+						<label for="subject" class="text-sm font-bold leading-7 text-gray-600">Sujet</label>
+						<input type="text" id="subject" name="subject" placeholder="Erreur d'accès à la plateforme" class="w-full px-3 py-1 text-base leading-8 text-gray-700 transition-colors duration-200 ease-in-out bg-opacity-50 border border-gray-300 rounded outline-none bg-slate-200 focus:border-red-500 focus:bg-white focus:ring-2 focus:ring-red-200">
+					</div>
+				</div>
+				<div class="w-full p-2">
+					<div class="relative">
+						<label for="message" class="text-sm font-bold leading-7 text-gray-600">Message</label>
+						<textarea id="message" name="message" placeholder="Bonjour, je vous contacte au sujet de ..." class="w-full h-64 px-3 py-1 text-base leading-6 text-gray-700 transition-colors duration-200 ease-in-out bg-opacity-50 border border-gray-300 rounded outline-none resize-none bg-slate-200 focus:border-red-500 focus:bg-white focus:ring-2 focus:ring-red-200"></textarea>
+					</div>
+				</div>
+				<div class="w-full p-2 text-center">
+					<button class="flex mx-auto text-base text-center text-white border-0 rounded bg-gradient-to-r from-rose-900 to-red-500 focus:outline-none hover:opacity-80 w-fit">Envoyer le message</button>
+				</div>
+
+			</form>
+		</div>
+	</div>
+
+	<div class="items-center justify-center hidden ml-8 lg:flex">
+		<section class="translate-y-5 card card--carreau rotate-12" value="A">
+			<div class="flex items-center card__inner card__inner--centered ace">
+				<div class="card__symbol"></div>
+			</div>
+		</section>
+	</div>
+
+</section>{% endblock %}

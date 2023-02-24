@@ -1,0 +1,56 @@
+{% extends 'layouts/app.twig' %}
+
+{% block css %}
+	<link rel='stylesheet' href='/css/style-jeu.css'/>
+{% endblock %}
+
+{% block body %}
+	<section class="overflow-hidden text-gray-600 body-font">
+		<div class="container flex flex-col gap-12 px-5 py-24 mx-auto">
+			<div class="flex flex-col w-full ">
+				<h2 class="mb-2 text-5xl font-medium text-gray-900 sm:text-3xl title-font">Modules</h2>
+				<p class="text-base leading-relaxed text-gray-500 lg:w-2/3">Voici les différents modules disponibles :</p>
+				<div class="flex w-full mt-6 overflow-hidden border-4 border-red-700 rounded"></div>
+			</div>
+
+			{% for section in sections %}
+				<div class="flex flex-col">
+					<h2 class="mb-2 font-medium text-gray-900 sm:text-3xl title-font">{{ section.title }}</h2>
+					<p class="py-1 text-base leading-relaxed text-gray-500 lg:w-2/3">{{ section.description }}</p>
+					<div class="flex w-full mt-2 overflow-hidden border-indigo-500 rounded border-1"></div>
+					<div class="flex flex-wrap -m-4 rounded-xl">
+						{% for module in section.modules %}
+							<div class="w-full m-4 bg-white xl:w-1/4 md:w-1/2 rounded-xl">
+								<div class="relative flex flex-col h-full gap-3 p-6 overflow-hidden border-2 shadow-lg rounded-xl border-gray-50">
+									{% if auth and listProgress[(section.id ~ '-' ~ module.id)] != undefined %}
+										<div class="absolute top-0 left-0 flex w-full h-1 overflow-hidden" style="width: {{ listProgress[(section.id ~ '-' ~ module.id)][0].progress }}%;">
+											<div class="w-full h-full bg-gradient-to-r from-rose-900 to-red-500"></div>
+										</div>
+									{% endif %}
+									<h3 class="pb-4 mb-2 text-2xl font-semibold text-gray-900 border-b border-gray-100">{{ module.title }}</h3>
+									{% for tag in module.tags %}
+										<p class="flex items-center text-gray-600">
+											<span class="inline-flex items-center justify-center flex-shrink-0 w-4 h-4 mr-2 text-white bg-red-600 rounded-full">
+												<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" class="w-3 h-3" viewbox="0 0 24 24">
+													<path d="M20 6L9 17l-5-5"></path>
+												</svg>
+											</span>
+											{{ tag }}
+										</p>
+									{% endfor %}
+									
+									
+									<a href="/courses/{{section.id}}/{{ module.id }}" class="flex items-center w-full px-4 py-2 mt-2 text-white bg-red-600 border-0 rounded focus:outline-none hover:bg-red-500">Commencer
+										<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-auto" viewbox="0 0 24 24">
+											<path d="M5 12h14M12 5l7 7-7 7"></path>
+										</svg>
+									</a>
+								</div>
+							</div>
+						{% endfor %}
+					</div>
+				</div>
+			{% endfor %}
+		</div>
+	</section>
+{% endblock %}

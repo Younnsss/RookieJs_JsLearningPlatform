@@ -1,0 +1,427 @@
+body.game {
+  padding: 0;
+  margin: 0;
+  background: url("./../assets/background/motif_table_2.jpg");
+  background-position: center;
+  height: 100vh;
+  width: 100%;
+  font-family: "Calibri", sans-serif;
+}
+
+/* CSS lié à l'affichage du jeu*/
+
+.jeu {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  justify-content: space-between;
+}
+
+.croupier {
+  display: flex;
+  justify-content: center;
+  align-items: end;
+}
+
+.affichageCroupier {
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(255, 255, 255, 0.1);
+  -webkit-backdrop-filter: blur(4px) brightness(0.85);
+  backdrop-filter: blur(4px) brightness(0.85);
+  padding: 15px;
+  border-radius: 20px;
+  position: relative;
+  top: 100px;
+}
+
+.joueurs {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.chrono {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: white;
+}
+
+.chrono-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.1);
+  -webkit-backdrop-filter: blur(2px) opacity(50%);
+  backdrop-filter: blur(2px) opacity(50%);
+  padding: 10px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  min-width: 30px;
+}
+
+.boutons {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  background-color: rgba(255, 255, 255, 0.1);
+  -webkit-backdrop-filter: blur(2px) opacity(50%);
+  backdrop-filter: blur(2px) opacity(50%);
+  padding: 20px;
+  border-top-left-radius: 20px;
+}
+
+.start-menu {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  gap: 10px;
+}
+
+.start-menu-overlay {
+  flex-direction: column;
+  padding: 0px;
+  width: 100%;
+  height: 100%;
+  -webkit-backdrop-filter: blur(2px) brightness(0.1);
+  backdrop-filter: blur(2px) brightness(0.1);
+  z-index: 10;
+}
+
+.start-menu > h1{
+  color: white;
+}
+
+button {
+  width: 200px;
+  border: 0;
+  border-radius: 10px;
+  background-color: #1594dd;
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding: 7px 15px;
+  cursor: pointer;
+}
+
+.affichageJoueurs {
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 15px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  transition: all 0.5s;
+}
+
+.vie,
+.score,
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  color: #fff;
+  transition: all 0.5s;
+}
+
+.title {
+  font: 18px "Trebuchet MS";
+  color: #444;
+  text-align: center;
+}
+
+.hide {
+  display: none;
+}
+
+.show-anim {
+  opacity: 1 !important;
+  pointer-events: all !important;
+}
+
+.carte-anim {
+  transition: all 0.5s ease-in-out;
+  animation: flip-card 2.5s;
+  animation-fill-mode: forwards;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  backdrop-filter: brightness(0.5) blur(5px);
+}
+
+@keyframes flip-card {
+  0% {
+    transform: translate(-50%, -50%) scale(0) rotateY(180deg);
+  }
+  20% {
+    transform: translate(-50%, -50%) scale(1.5) rotateY(180deg);
+  }
+  80% {
+    transform: translate(-50%, -50%) scale(1.5) rotateY(0deg);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+  }
+  81% {
+    position: relative;
+    backdrop-filter: none;
+  }
+  100% {
+    transform: initial;
+    position: relative;
+    backdrop-filter: none;
+    border-radius: 0;
+    left: 0;
+    top: 0;
+  }
+}
+
+/* CSS lié aux différentes scène */
+
+.annonce {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: brightness(0.2) blur(5px);
+  transition: all 0.5s ease-in-out;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.annonce .txt {
+  font-size: 3rem;
+  color: #fff;
+  text-align: center;
+}
+
+.final {
+  width: 100%;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.resultat {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  padding: 20px;
+}
+
+.rang {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-weight: bold;
+  background-color: rgba(255, 255, 255, 0.1);
+  -webkit-backdrop-filter: blur(3px) brightness(0.85);
+  backdrop-filter: blur(3px) brightness(0.85);
+  padding: 20px;
+  border-radius: 20px;
+}
+
+.rang > .cartes {
+  display: flex;
+  transform: scale(0.9);
+}
+
+.gagnant {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-weight: bolder;
+  margin-bottom: 20px;
+}
+
+.rejouer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* CSS lié aux cartes */
+.cards {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.card-svg {
+  overflow: visible;
+  transform: scale(1.15);
+}
+
+.card {
+  position: relative;
+  display: inline-block;
+  width: 172px;
+  height: 240px;
+  font: 16px "Trebuchet MS";
+  margin: 10px;
+  border-radius: 4px;
+  background: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.18);
+}
+.card:before,
+.card:after {
+  content: attr(value);
+  position: absolute;
+  width: 12px;
+  text-align: center;
+  letter-spacing: -2px;
+}
+.card:before {
+  top: 4px;
+  left: 4px;
+}
+.card:after {
+  bottom: 4px;
+  right: 4px;
+  transform: rotate(180deg);
+}
+.card--coeur,
+.card--carreau {
+  color: #e44145;
+}
+.card--coeur:before,
+.card--coeur:after {
+  content: attr(value) " ♥";
+}
+.card--carreau:before,
+.card--carreau:after {
+  content: attr(value) " ♦";
+}
+.card--pique,
+.card--trefle {
+  color: #252525;
+}
+.card--pique:before,
+.card--pique:after {
+  content: attr(value) " ♠";
+}
+.card--trefle:before,
+.card--trefle:after {
+  content: attr(value) " ♣";
+}
+.card__inner {
+  box-sizing: border-box;
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  top: 24px;
+  left: 24px;
+  right: 24px;
+  bottom: 24px;
+}
+.card__inner--centered {
+  justify-content: center;
+}
+.card__column {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.card__column--centered {
+  justify-content: center;
+}
+.card__symbol {
+  display: inline-block;
+  height: 40px;
+  text-align: center;
+}
+.card__symbol:before {
+  font-size: 40px;
+  line-height: 40px;
+}
+.card--coeur .card__symbol:before {
+  content: "♥";
+}
+.card--carreau .card__symbol:before {
+  content: "♦";
+}
+.card--pique .card__symbol:before {
+  content: "♠";
+}
+.card--trefle .card__symbol:before {
+  content: "♣";
+}
+.card__symbol--rotated,
+.card__symbol:last-of-type {
+  transform: rotate(180deg);
+}
+.card__symbol:first-of-type {
+  transform: rotate(0);
+}
+.card__symbol--big {
+  flex-basis: 60px;
+}
+.card__symbol--huge {
+  flex-basis: 108px;
+}
+
+/* Croupier setup - à remplacer par un scale() (bcp plus rapide et pratique)*/
+
+.croupier .card {
+  width: 120px;
+  height: 167px;
+  font: 16px;
+  margin: 10px;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.18);
+}
+
+.croupier .card__inner {
+  box-sizing: border-box;
+  top: 17px;
+  left: 17px;
+  right: 17px;
+  bottom: 17px;
+}
+
+.croupier .card__symbol:before {
+  font-size: 28px;
+  line-height: 28px;
+}
+
+.croupier .card__symbol {
+  height: 28px;
+}
+
+.croupier .card__symbol--big {
+  flex-basis: 42px;
+}
+.croupier .card__symbol--huge {
+  flex-basis: 76px;
+}

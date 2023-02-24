@@ -1,0 +1,119 @@
+{
+    "title": "The Lord of the Rings: The Fellowship of the Ring",
+    "description": "A memory of the One Ring, Frodo and his Companions, the Ring, and the Dark Lord Sauron.",
+    "time": 3,
+    "tags": [
+        "Le Seigneur des Anneaux",
+        "Frodo",
+        "The Lord of the Rings",
+        "The Fellowship of the Ring",
+        "The Ring"
+    ],
+    "content": [
+        {
+            "type": "title",
+            "text": "The Lord of the Rings: The Fellowship of the Ring"
+        },
+        {
+            "type": "text",
+            "text": "Lorem ipsum dolor sit <b>amet</b>, consectetur adipiscing elit. Cras sed efficitur ante, vitae elementum velit. Suspendisse at dapibus ligula. Cras vitae orci cursus, tempor nulla quis, sollicitudin nisl. Nunc tincidunt justo felis, vel hendrerit urna varius vel. Praesent hendrerit ligula non nibh pretium, sed sollicitudin dui consectetur. Maecenas id enim libero. Etiam accumsan orci ex, id fringilla turpis placerat in. Sed vehicula nibh quis mollis tincidunt. Mauris enim nunc, tristique a commodo eu, faucibus et massa. Curabitur facilisis turpis sed vestibulum tempus.\nPellentesque non metus convallis, scelerisque ante et, condimentum dui. Vivamus libero turpis, fringilla ut iaculis vitae, rutrum eget elit. Nulla id justo erat. Aenean ut congue enim, ut sagittis ipsum. Aenean aliquet lectus in turpis egestas bibendum. Quisque blandit fermentum volutpat. Sed suscipit nulla at velit semper, et bibendum libero convallis. Mauris est dolor, porta vitae odio sed, rhoncus eleifend diam. Nunc vel nunc metus. Integer facilisis luctus gravida. Praesent ullamcorper, lorem sed viverra suscipit, enim orci suscipit arcu, non ultricies turpis arcu a justo.\nDuis vitae massa est. Duis mattis lectus hendrerit, varius diam nec, dapibus neque. Aenean magna massa, volutpat sed nibh nec, tincidunt dictum felis. Praesent sit amet dolor nulla. Sed lacinia ante sit amet vulputate varius. Fusce sem lectus, semper eget viverra a, laoreet sed enim. Donec nec risus quam. Pellentesque id nulla porta, feugiat lacus in, cursus ante. Vivamus et congue tellus. Nulla et magna eu magna maximus ultrices vel sagittis orci. Curabitur lacus dui, laoreet auctor convallis id, sollicitudin sed risus. Etiam ligula tellus, pulvinar nec placerat et, sollicitudin ac ante. Nam a ultricies erat.\nCras dignissim vitae est et cursus. Praesent pulvinar id lorem nec lacinia. Aliquam suscipit nunc lacus, sit amet mollis ipsum fermentum sed. Curabitur erat leo, pulvinar at nulla convallis, mollis porttitor metus. Nulla sodales rhoncus tellus quis pellentesque. Maecenas pellentesque iaculis nulla accumsan varius. Nulla ullamcorper maximus molestie.\nDuis aliquet augue vel metus interdum ullamcorper. Proin lobortis massa lectus, sed finibus odio lacinia sed. Etiam aliquet luctus ipsum, posuere volutpat orci placerat vel. Nulla facilisi. Donec urna mauris, sodales eget lacus nec, condimentum aliquam enim. Mauris congue, lorem consectetur accumsan tristique, nisi elit tincidunt sem, suscipit egestas purus diam ac nisi. Nulla faucibus scelerisque leo, sed ultrices orci ullamcorper a. Phasellus neque lacus, feugiat sed leo vel, tempus gravida ligula. Ut vel augue id purus suscipit mollis. Pellentesque hendrerit elit massa, sit amet malesuada odio aliquet nec. Nullam tincidunt venenatis nunc id malesuada. Nulla luctus ut sem et aliquet."
+        },
+        {
+            "type": "code",
+            "language": "html",
+            "code": "<p>HTML CODE</p>\n<h1>Title</h1>",
+            "description": "Html snippet to display in the page"
+        },
+        {
+            "type": "image",
+            "image": "https://picsum.photos/1280/720",
+            "height": "20vh"
+        }
+    ],
+    "exercices": [
+        {
+            "type": "quiz",
+            "questions": [
+                {
+                    "question": "What is the title of the movie?",
+                    "answers": [
+                        "The Lord of the Rings: The Fellowship of the Ring",
+                        "The Lord of the Rings: The Two Towers",
+                        "The Lord of the Rings: The Return of the King"
+                    ],
+                    "correct": 1,
+                    "explanation": "The Lord of the Rings: The Fellowship of the Ring"
+                },
+                {
+                    "question": "What is the title of the movie?",
+                    "answers": [
+                        "The Lord of the Rings: The Fellowship of the Ring",
+                        "The Lord of the Rings: The Two Towers",
+                        "The Lord of the Rings: The Return of the King"
+                    ],
+                    "correct": 2,
+                    "explanation": "The Lord of the Rings: The Fellowship of the Ring"
+                }
+            ]
+        },
+        {
+            "type": "gapfill",
+            "title": "Complete this code",
+            "text": "for ( %gap% i; i < a.length; %gap%)",
+            "gaps": [
+                {
+                    "text": "let",
+                    "correct": 1
+                },
+                {
+                    "text": "i++",
+                    "correct": 2
+                }
+            ]
+
+        },
+        {
+            "type": "writing",
+            "title": "The Lord of the Rings: The Fellowship of the Ring",
+            "question": "Coder une boucle allant de 0 à 10 qui affiche l'index de la boucle",
+            "answer": "fjjfijfijdqfijdfjfjqjfiqfdij\nazeazeaz\n"
+        },
+        {
+            "type": "quiz",
+            "questions": [
+                {
+                    "question": "What is the heck of the movie?",
+                    "answers": [
+                        "The  of the Rings: The Fellowship of the Ring",
+                        "The  of the Rings: The Two Towers",
+                        "The  of the Rings: The Return of the King"
+                    ],
+                    "correct": 1,
+                    "explanation": "The  of the Rings: The Fellowship of the Ring"
+                }
+            ]
+        },
+        {
+            "type": "gapfill",
+            "title": "Complete this code",
+            "text": "for ( %gap% i; i < a.length; %gap%)",
+            "gaps": [
+                {
+                    "text": "let",
+                    "correct": 1
+                },
+                {
+                    "text": "i++",
+                    "correct": 2
+                }
+            ]
+
+        },
+        {
+            "type": "writing",
+            "title": "Peter Pan - The Return of the King",
+            "question": "Code with our friends the following code :",
+            "answer": "function deny(true):\nreturn Help me\n"
+        }
+    ]
+}

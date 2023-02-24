@@ -1,0 +1,45 @@
+{
+    "title": "Fin d'une manche",
+    "description": "Apprendre à gérer la fin d'une manche",
+    "time": 4,
+    "tags": [
+        "Créer une fonction permettant de gérer la fin d'une manche"
+    ],
+    "content": [
+        {
+            "type": "title",
+            "text": "Introduction"
+        },
+        {
+            "type": "text",
+            "text": "La manche est terminée lorsque tous les joueurs ont terminés leurs tours. Créons une fonction permettant de gérer cela."
+        },
+        {
+            "type": "title",
+            "text": "Création de la fonction"
+        },
+        {
+            "type": "code",
+            "language": "javascript",
+            "code": "class Game {\n    manche_suivante() {\n        game.time = 30; // On remet le temps à 30 secondes\n        game.manche += 1; // On passe à la manche suivante\n        game.joueurs_en_cours = 0; // On remet le joueur en cours à 0\n        game.croupier = new Croupier(); // On crée un nouveau croupier\n\n        this.generer_cartes(); // On génère les cartes\n\n        const liste_joueurs = game.joueurs.slice();\n        // Pour chaque joueur\n        for (let index = 0; index < pseudo.length; index++) {\n            game.joueurs[index].inventaire = []; // On vide l'inventaire du joueur\n            if (game.joueurs[index].vie === 0) {\n                liste_joueurs.splice(index, 1); // On le supprime de la liste des joueurs\n            }\n        }\n\n        game.distribution(liste_joueurs); // On distribue les cartes\n        game.tour_croupier(); // On distribue les cartes au croupier\n        if (game.joueurs[game.joueurs_en_cours].vie <= 0) {\n            game.tour_suivant(game.joueurs_en_cours); // On passe au tour suivant\n        }\n    }\n}\n",
+            "description": "La fonction qui gère la fin d'une manche"
+        }
+    ],
+    "exercices": [
+        {
+            "type": "quiz",
+            "questions": [
+                {
+                    "question": "Comment appeller la fonction manche_suivante ?",
+                    "answers": [
+                        "game.manche_suivante();",
+                        "Game.manche_suivante();",
+                        "game.Game.manche_suivante();"
+                    ],
+                    "correct": 1,
+                    "explanation": "La fonction manche_suivante est appelée avec le mot clé \"game.\""
+                }
+            ]
+        }
+    ]
+}

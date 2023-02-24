@@ -1,0 +1,17 @@
+{% extends 'layouts/app.twig' %}
+
+{% block css %}
+	<link rel='stylesheet' href='/css/style-jeu.css'/>
+{% endblock %}
+
+{% block body %}
+<div class="flex flex-col items-center justify-center h-[85vh] px-8 mb-4 text-black md:px-20 py-28">
+	<h1 class="mb-4 text-2xl font-extrabold tracking-tight text-center md:text-3xl">Bonjour&nbsp;
+		<span class="text-transparent md:text-4xl from-rose-900 bg-clip-text to-red-500 bg-gradient-to-r">{{ user.userName }}</span>.
+	</h1>
+	<h2 class="mb-4 text-xl font-extrabold tracking-tight text-center md:text-2xl">Tu t'es inscrit avec l'email&nbsp;
+		<span class="text-transparent md:text-3xl from-rose-900 bg-clip-text to-red-500 bg-gradient-to-r">{{ user.email }}</span>.
+	</h2>
+	<a href="/logout" class="px-2 py-1 mt-2 font-bold text-white rounded-lg bg-gradient-to-tr from-rose-900 to-red-500">Clique ici pour te déconnecter</a>
+</div>
+{% endblock %}

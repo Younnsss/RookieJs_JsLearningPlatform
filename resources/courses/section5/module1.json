@@ -1,0 +1,78 @@
+{
+    "title": "Distribution initiale des cartes aux joueurs",
+    "description": "Comment distribuer les cartes aux joueurs ?",
+    "time": 5,
+    "tags": [
+        "Manipulation de tableau"
+    ],
+    "content": [
+        {
+            "type": "title",
+            "text": "Introduction"
+        },
+        {
+            "type": "text",
+            "text": "Dans ce module, nous allons créer la méthode <h>distribution()</h> qui va réaliser la distribution initale de notre jeu du Blackjack."
+        },
+        {
+            "type": "title",
+            "text": "Rappel du module mélange"
+        },
+        {
+            "type": "text",
+            "text": "Dans ce module, nous avons vu que <u><strong>l'algorithme de Fisher-Yates</strong></u> nous a permis d'obtenir un deck de carte mélangé aléatoirement. L'algorithme est le suivant :"
+        },
+        {
+            "type": "code",
+            "language": "javascript",
+            "code": "for (let i = this.cards.length - 1; i > 0; i--) {\n    const j = Math.floor(Math.random() * (i + 1));\n    [this.cards[i], this.cards[j]] = [this.cards[j], this.cards[i]];\n}",
+            "description": "Algorithme de Fisher-Yates en Javascript"
+        },
+        {
+            "type": "title",
+            "text": "Construction de la méthode"
+        },
+        {
+            "type": "text",
+            "text": "Notre algorithme va prendre pour argument une liste de joueurs et son but est de distribuer 2 cartes à chaque joueur. Avec le module \"Système de joueur\", nous somme capable de manipuler l'inventaire des joueurs sans difficulté."
+        },
+        {
+            "type": "text",
+            "text": "Quelques propriété de fonctions peuvent nous être utile pour réaliser notre fonction :"
+        },
+        {
+            "type": "list",
+            "content": [
+                "Pour ajouter un élément à une liste, on utilise : <h>variable_tableau.push()</h> (qui ajoute l'élement à la fin de la liste)",
+                "Pour retirer un élément à une liste, on utilise : <h>variable_tableau.shift()</h> (qui retire l'élement à la fin de la liste et renvoir cet élément là)"
+            ]
+        },
+        {
+            "type": "text",
+            "text": "L'algorithme que nous allons réaliser se déroule en 2 étapes : la première est le mélange de carte. Puis nous allons donner à chaque joueur, un par un, 2 cartes tirées du deck.<br>Si on réalise cet algorithme, on a le code suivant :"
+        },
+        {
+            "type": "code",
+            "language": "javascript",
+            "code": "// Dans la classe Game\ndistribution(liste_joueurs){\n    for (let i = this.cards.length - 1; i > 0; i--) {\n       const j = Math.floor(Math.random() * (i + 1));\n       [this.cards[i], this.cards[j]] = [this.cards[j], this.cards[i]];\n    }\n\n    for (let i = 0; i < liste_joueurs.length; i++) {\n       for (let k = 0; k < 2; k++) {\n          liste_joueurs[i].inventaire.push(this.cards.shift());\n       }\n    }\n}",
+            "description": "La méthode distribution"
+        }
+    ],
+    "exercices": [
+        {
+            "type": "quiz",
+            "questions": [
+                {
+                    "question": "Quel est le résultat de la méthode <h>distribution()</h> ?",
+                    "answers": [
+                        "La méthode ne fait rien",
+                        "La méthode distribue les cartes aux joueurs",
+                        "La méthode distribue les cartes aux joueurs et retourne les cartes restantes"
+                    ],
+                    "correct": 2,
+                    "explanation": "La méthode distribution() distribue les cartes aux joueurs mais elle ne retourne rien."
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,183 @@
+{
+    "title": "Système du croupier",
+    "description": "Dans ce module, nous allons voir comment créer un croupier dans notre jeu du Blackjack.",
+    "time": 15,
+    "tags": [
+        "Passer d'un concept/d'une règle de jeu à des lignes de code",
+        "Création d'une fonction principale du jeu"
+    ],
+    "content": [
+        {
+            "type": "title",
+            "text": "Introduction"
+        },
+        {
+            "type": "text",
+            "text": "Bienvenue dans ce module qui va vous apprendre à créer un croupier dans notre jeu."
+        },
+        {
+            "type": "title",
+            "text": "Rappel du module précédent"
+        },
+        {
+            "type": "text",
+            "text": "Nous avons vu dans le module précédent la création de la classe Joueur. Comme le croupier est un \"joueur\" particulier dans notre jeu, on va calquer la création de la classe Joueur pour créer une classe Croupier avec des différences dans les propriétés."
+        },
+        {
+            "type": "code",
+            "language": "javascript",
+            "code": "class Joueur {\n    constructor(pseudo, bot) {\n      this.identifiant = pseudo;\n      this.inventaire = [];\n      this.vie = 1;\n      this.score = 0;\n      this.bot = bot === 'bot';\n   }\n}",
+            "description": "Classe \"Joueur\" réalisée dans le module précédent..."
+        },
+        {
+            "type": "text",
+            "text": "Le croupier n'a pas de vie est n'est pas un bot. Ces propriétés n'ont alors pas de sens pour un croupier. Cependant, on va ajouter tout de même une propriété qui est le score affiché par le croupier car le croupier montre sa première carte et met en face cachée la deuxième (voir règles). Cela aura son importance dans la partie affichage du jeu du Blackjack mais pas dans la partie fonctionnelle du jeu."
+        },
+        {
+            "type": "text",
+            "text": "De plus, la fonction constructor de la classe Croupier va aussi être simplier : elle ne pendra pas de paramètres, on va définir son identifiant directement !"
+        },
+        {
+            "type": "title",
+            "text": "Créer la classe Croupier"
+        },
+        {
+            "type": "text",
+            "text": "Comme dit dans le rappel, on reprend la classe Joueur et on doit :"
+        },
+        {
+            "type": "list",
+            "content": [
+                "Retirer les paramètres dans la fonction constructor()",
+                "Enlever les propriétés : vie et bot",
+                "Ajouter la propriété score_affiche"
+            ]
+        },
+        {
+            "type": "text",
+            "text": "On obtient les lignes de code suivant :"
+        },
+        {
+            "type": "code",
+            "language": "javascript",
+            "code": "class Croupier {\n    constructor() {\n      this.identifiant = 'Croupier';\n      this.inventaire = [];\n      this.score = 0;\n      this.score_affiche = 0;\n   }\n}",
+            "description": "Classe \"Croupier\" qui ressemble à une classe déjà réalisé..."
+        },
+        {
+            "type": "title",
+            "text": "La règle du stand soft 17..."
+        },
+        {
+            "type": "text",
+            "text": "Dans les règles du Blackjack, la maison oblige souvent au croupier de tirer une carte jusqu'à obtenir un score de 17 sans le dépasser. Cette règle s'appelle le <strong>\"Stand soft 17\"</strong>.<br> Cette stratégie permet un gain pour la maison car quand on joue au casino, la maison est toujours gagnante... Ici, on va utiliser cette stratégie à notre croupier pour avoir un croupier efficace qui pourrait faire perdre le joueur efficacement ! <br>C'est la fameuse phrase : <strong><i>\"Dealer must draw to 16 and stand to 17...\"</i></strong>"
+        },
+        {
+            "type": "image",
+            "image": "",
+            "height": "30vh"
+        },
+        {
+            "type": "text",
+            "text": "Pour ce faire, nous allons créer une fonction qui permet de reproduire cette stratégie. Cette fonction va fonctionner indépendemment des actions des joueurs : plus être plus précis, cette fonction va s'éxécuter au début du lancement du jeu (il peut l'être aussi à la fin, cela n'a pas vraiment d'importance)."
+        },
+        {
+            "type": "title",
+            "text": "Réfléchir à l'algorithme à reproduire..."
+        },
+        {
+            "type": "text",
+            "text": "Pour réaliser la stratégie du croupier, nous pouvons essayer d'analyser rapidement comment cette stratégie peut être traduite en algorithme."
+        },
+        {
+            "type": "text",
+            "text": "Si on traduit la stratégie en algorithme, on peut obtenir la phrase suivante : \"<i><u>Tant que le croupier n'obtient pas un score de 17, il doit piocher une nouvelle carte</i></u>\"."
+        },
+        {
+            "type": "text",
+            "text": "On voit alors que l'algorithme utilisé va faire intervenir une boucle <h>Tant que</h> (une boucle indéterminée) et qui va veiller pour chaque itération si le score du croupier ne dépasse pas 17.<br>Cet algorithme en Javascript sera écrite en tant que méthode (fonction au sein d'une classe) de la classe Game."
+        },
+        {
+            "type": "text",
+            "text": "Ensuite, il faut regarder l'ensemble des variables utilisées dans cet algorithme. On peut lister et classer les variables utiisées de cette manière là:"
+        },
+        {
+            "type": "text",
+            "text": "<u><strong>Les variables crées au sein de la méthode/fonction (variables locales) :</strong></u>"
+        },
+        {
+            "type": "list",
+            "content": [
+                "somme_croupier : une variable qui va calculer la somme totale des valeurs des cartes du croupier",
+                "init : une variable qui va compter le nombre d'itérations effectué par la boucle <h>Tant que</h>"
+            ]
+        },
+        {
+            "type": "text",
+            "text": "<u><strong>Les variables au sein de la classe (ses propriétés) :</strong></u>"
+        },
+        {
+            "type": "list",
+            "content": [
+                "this.croupier.inventaire : cette variable va selectionner la propriété \"Croupier\" de sa classe et selectionner la propriété \"Inventaire\" de la propriété selectionnée. Pour faire simple, on accède à l'inventaire du croupier du jeu.",
+                "this.cards: c'est le même principte ici sauf qu'on accède au paquet de cartes."
+            ]
+        },
+        {
+            "type": "title",
+            "text": "Construction de l'algorithme"
+        },
+        {
+            "type": "text",
+            "text": "Pour commencer l'algorithme, il faut initier les variables locales : c'est-à-dire somme_croupier et init pour éviter des problèmes."
+        },
+        {
+            "type": "code",
+            "language": "javascript",
+            "code": "class Game {\n    ...\n    tour_croupier() {\n         let init = 0;\n         let somme_croupier = 0;\n    }\n}",
+            "description": ""
+        },
+        {
+            "type": "text",
+            "text": "Maintenant, il fait construire la boucle <h>while</h> avec pour condition d'arrêt : somme_croupier > 17. On met l'inverse de cette condition dans la boucle while donc : somme_croupier < 17.<br>Ensuite, il faut recalculer la somme du croupier à chaque fois qu'une carte est tirée. Il est nécessaire de le faire sinon la boucle va tournée à l'infinie ! Ce calcul s'effectue au sein même de la boucle."
+        },
+        {
+            "type": "text",
+            "text": "Si on assemble tous ces éléments ensembles, on obtient le code suivant :"
+        },
+        {
+            "type": "code",
+            "language": "javascript",
+            "code": "class Game {\n    ...\n    tour_croupier() {\n         let init = 0;\n         let somme_croupier = 0;\n         while(somme_croupier < 17) {\n              this.croupier.inventaire.push(this.cards.shift());\n              somme_croupier += this.croupier.inventaire[init];\n              init +=  1\n   }\n}",
+            "description": "La stratégie du croupier en algorithme"
+        }
+    ],
+    "exercices": [
+        {
+            "type": "quiz",
+            "questions": [
+                {
+                    "question": "Quelle est la stratégie du croupier dans l'algorithme ?",
+                    "answers": [
+                        "Tant que le croupier n'obtient pas un score de 17, il doit piocher une nouvelle carte",
+                        "Tant que le croupier obtient un score de 17, il doit piocher une nouvelle carte.",
+                        "Tant que le croupier obtient un score inférieur à 17, il doit piocher une nouvelle carte.",
+                        "Tant que le croupier obtient un score supérieur à 17, il doit piocher une nouvelle carte."
+                    ],
+                    "correct": 3,
+                    "explanation": "La stratégie du croupier est de piocher une carte tant que le croupier a un score inférieur à 17."
+                },
+                {
+                    "question": "Parmi ces affirmations laquelle est fausse ?",
+                    "answers": [
+                        "Le croupier fonctionne comme un bot",
+                        "La règle du stand soft 17 consiste à faire en sorte que le croupier obtienne un score de 17 au minimum.",
+                        "Le code du croupier est écrit en Javascript.",
+                        "Le croupier ne peut pas piocher deux fois de suite."
+                    ],
+                    "correct": 4,
+                    "explanation": "Le croupier peut piocher deux fois de suite."
+                }
+            ]
+        }
+    ]
+} 

@@ -1,0 +1,159 @@
+{% extends 'layouts/app.twig' %}
+{% block css %}
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/default.min.css">
+	<link rel="preconnect" href="https://api.fonts.coollabs.io">
+	<link href="https://api.fonts.coollabs.io/css2?family=Work+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+	<div class="fixed top-0 flex w-0 h-1 overflow-hidden transition-all duration-100" data-scrollbar="{{progress}}" id="scrollbar">
+		<div class="w-full h-full bg-gradient-to-r from-rose-900 to-red-500"></div>
+	</div>
+	<div class="bg-gradient-to-r from-rose-900 to-red-500 h-[40vh] mb-4 flex px-8 md:px-20 py-28 justify-center clip-path flex-col text-white">
+		<p class="-mb-1.5 italic information">Section
+			{{ section.id }}
+			-
+			{{ section.title }}</p>
+		<h1 class="text-3xl font-bold">Module
+			{{ module.id }}
+			-
+			{{ module.title }}</h1>
+		<div class="flex items-center gap-3 mt-1">
+			<div class="flex items-center gap-1 information">
+				<svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewbox="0 0 24 24" stroke="currentColor" stroke-width="2">
+					<path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+				</svg>
+				<p class="text-[15px]">{{ module.time }} min</p>
+			</div>
+			<div class="flex items-center gap-1 information">
+				<svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewbox="0 0 24 24" stroke="currentColor" stroke-width="2">
+					<path stroke-linecap="round" stroke-linejoin="round" d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z"/>
+				</svg>
+				<p class="text-[15px]">{% if  module.exercices.length > 1  %}
+					{{ module.exercices.length }} exercices
+				{% else %}
+					{{ module.exercices.length }} exercice
+				{% endif %}</p>
+			</div>
+		</div>
+	</div>
+	<div class="flex items-center justify-center w-full main-container">
+		<div class="flex main-content max-w-[1280px] w-full flex-col gap-3 md:px-10 pt-8 article">
+			<div class="flex flex-col gap-3 px-10 content">
+				{% for content in module.content %}
+					{% if content.type == 'text' %}
+						<div class="flex flex-col">
+							<p class="text">{{ content.text }}</p>
+						</div>
+					{% elseif content.type == 'title' %}
+						<div class="flex flex-col mt-6 mb-2">
+							<h2 class="text-2xl font-bold title">{{ content.text }}</h2>
+						</div>
+					{% elseif content.type == 'list' %}
+						<ul class="flex flex-col justify-center gap-4 pl-10 mt-6 mb-2 list-disc list">
+							{% for item in content.content %}
+								<li class="list-item">{{ item }}</li>
+							{% endfor %}
+						</ul>
+					{% elseif content.type == 'video' %}
+						<div class="flex flex-col items-center justify-center">
+							<video class="w-full h-full" controls>
+								<source src="{{ content.video }}" type="video/mp4">
+							</video>
+						</div>
+					{% elseif content.type == 'image' %}
+						<div class="flex flex-col justify-center items-center h-[50vh] my-4" style="height: {{ content.height }}">
+							<img crossorigin="anonymous" class="object-cover object-center w-full h-full" src="{{ content.image }}" alt="">
+						</div>
+					{% elseif content.type == 'code' %}
+						<div class="flex flex-col items-center justify-center w-full code-snippet">
+							<pre class="flex flex-col w-full gap-1 bg-gray-800 rounded-t-lg">
+								<code class="language-{{ content.language }}">{{ content.code }}</code>
+							</pre>
+							<p class="w-full py-2 italic text-center text-gray-200 bg-gray-900 rounded-b-lg">{{ content.description }}</p>
+						</div>
+					{% endif %}
+				{% endfor %}
+			</div>
+
+			<div class="flex flex-col gap-4 px-10 pt-8 exercices">
+				<h3 class="text-2xl font-bold text-left text-gray-900">Exercices</h3>
+				{% for exercice in module.exercices %}
+					{% if exercice.type == 'quiz' %}
+						<div class="flex items-center justify-center">
+							<div class="py-10 rounded-2xl quiz bg-slate-800" data-quiz="{{ exercice.questions | json_encode | raw | replace({'"': '§'}) }}">
+								<div class="progress" data-aos="zoom-in">
+									<div class="progressbar">
+										<div class="bar1"></div>
+										<div class="bar2"></div>
+									</div>
+									<p class="progresstext">
+										<span class="min">0</span>&nbsp;/&nbsp;<span class="max">7</span>
+									</p>
+								</div>
+								<p class="question"></p>
+								<div class="answers"></div>
+								<a class="submit-quiz button">Suivant</a>
+							</div>
+						</div>
+					{% elseif exercice.type == 'gapfill' %}
+						<h3 class="text-xl font-bold text-gray-900">Gap Fill -
+							{{ exercice.title }}</h3>
+						<p class="">{{ exercice.question }}</p>
+						<div class="relative flex flex-col w-full gap-2 px-10 py-8 text-white bg-gray-800 gap-fill rounded-2xl" data-answers="{{ exercice.gaps | json_encode | raw | replace({'"': "§"}) }}">
+							<div class="flex" {% if exercice.height %}
+							 style="height: {{ exercice.height }}" {% endif %}>
+								<pre class="relative w-full h-full bg-gray-800 rounded-lg pointer-events-none">
+									<code class="absolute top-0 left-0 z-10 w-full overflow-auto whitespace-nowrap output preview language-javascript">{{ exercice.text | replace({'%gap%': '____'}) }}</code>
+								</pre>
+								<div class="absolute flex flex-wrap text-transparent gap-container">{{ exercice.text | replace({ '    ': '££££' }) | nl2br | raw | replace({ '<br />' : '<div class="line-break"></div>' }) | replace({'%gap%': '<div class="transition-all duration-200 bg-gray-700 gap word-drop">&nbsp;____&nbsp;</div>'})  }}</div>
+							</div>
+							<div class="flex gap-2 word-container">
+								{% for gap in exercice.gaps %}
+									<div class="px-2 py-1 transition-all duration-200 bg-red-700 cursor-move rounded-xl word-drag hover:bg-red-800">{{ gap.text }}</div>
+								{% endfor %}
+							</div>
+						</div>
+					{% elseif exercice.type == 'writing' %}
+						<h3 class="text-xl font-bold text-gray-900">Writing -
+							{{ exercice.title }}</h3>
+						<p class="">{{ exercice.question }}</p>
+						<div class="relative flex flex-col items-start justify-start w-full writing rounded-2xl">
+							<textarea spellcheck="false" placeholder="Vous pouvez écrire votre code ici.&#10;&#10;Une fois terminé, vous pouvez regarder la correction de l'exercice en cliquant sur le cadre de droite.&#10;&#10;Ce cadre vous permet de bénéficier de la colorisation syntaxique (for, let, ...).&#10;&#10;Enjoy :)" class="absolute z-20 w-full p-4 overflow-auto text-transparent break-words whitespace-pre-wrap bg-transparent outline-none resize-none md:w-1/2 input caret-white"></textarea>
+							<pre class="w-full h-full bg-gray-800 rounded-t-lg md:rounded-lg md:w-1/2 input">
+								<code class="absolute top-0 left-0 z-10 w-full p-4 overflow-auto break-words whitespace-pre-wrap output preview language-javascript">
+								</code>
+							</pre>
+							<div class="bg-gray-700 z-30 rounded-b-lg right-0 top-0 md:absolute w-full md:!w-1/2 h-full md:rounded-r-lg">
+								<div class="flex flex-col w-full h-full gap-3 p-4 answer">
+									<p class="text-xl font-bold text-white">Correction</p>
+									<a class="relative flex items-center justify-center w-full h-full cursor-pointer reveal">
+										<div class="flex w-full h-full transition-all duration-200 correction-text writing-blurred">
+											<pre class="flex w-full h-full bg-white rounded-lg bg-opacity-30 backdrop-blur-3xl backdrop-filter">
+												<code class="z-10 w-full h-full overflow-auto whitespace-nowrap language-javascript">{{ exercice.answer }}</code>
+											</pre>
+										</div>
+										<p class="absolute font-bold reveal-text">Cliquer ici pour dévoiler la correction</p>
+									</a>
+								</div>
+							</div>
+
+						</div>
+					{% endif %}
+				{% endfor %}
+			</div>
+			{% if section.next != null and module.next != null %}
+				<div class="flex items-center justify-center w-full my-4 buttons">
+					<a href="/courses/{{ section.id }}/{{ module.id }}/next?section={{ section.next }}&module={{ module.next }}" class="px-2 py-1 text-white transition-all duration-200 bg-blue-600 rounded-md cursor-pointer hover:bg-blue-700">Cours Suivant</a>
+				</div>
+			{% else %}
+				<div class="flex flex-col items-center justify-center w-full mt-8 mb-4 gap-1">
+					<p class="font-medium text-center text-gray-800 information">Vous avez terminé ce cours et vous êtes désormais capable de construire un jeu de carte du type du BlackJack en JavaScript. <br />
+					<b>Félicitations !</b></p>
+					<p class="font-medium text-center text-gray-800 information"><a href="/code_jeu.zip" download>Vous pouvez télécharger le code source complet du jeu en cliquant <b>ici</b></a></p>
+				</div>
+			{% endif %}
+			
+		</div>
+	</div>
+{% endblock %}
