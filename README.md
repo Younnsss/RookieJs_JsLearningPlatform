@@ -1,44 +1,18 @@
-# Projet étudiant
+# RookieJs - JsLearningPlatform
 
-## Prérequis
+Bienvenue sur RookieJs, une plateforme d'apprentissage conçue pour aider les débutants à découvrir le langage JavaScript à travers le développement d'un jeu de cartes. Notre plateforme propose plusieurs cours qui couvrent différents concepts de JavaScript et guident les apprenants dans le processus de construction d'un jeu de cartes entièrement fonctionnel. Malheureusement, en raison d'un manque de temps, nous n'avons pas pu terminer la plateforme d'apprentissage, les cours proposés sont donc incomplet.
 
-Vous devez disposer d’au moins : 
+Welcome to RookieJs, a learning platform designed to help beginners discover the JavaScript language through the development of a card game. Our platform offers several courses that cover different JavaScript concepts and guide learners through the process of building a fully functional card game. Unfortunately,  we were unable to complete the learning platform due to time constraints, resulting in an incomplete course
 
-- NodeJS v16 / v17 (https://nodejs.org/en/)
-- MySQL (https://laragon.org/download/index.html)
-- Git (https://git-scm.com/downloads)
+## Overview - Homepage
 
-## Installation 
+![App Screenshot](./readme/home.gif)
 
-```jsx
-git clone https://github.com/DevNono/PE_P22
-
-cd ./PE_P22
-
-copy .env.example .env 
-
-npm install
-
-npx sequelize-cli db:migrate // Migration de la base de donnée
-
-npx sequelize-cli db:seed:all // Seeding de la base de donnée
-
-npm run dev // Démarrage du projet en mode développement
-```
-
-## Extensions VSCode recommandées
-```
-Error Lens
-ESLint
-DotENV
-Headwind
-Json
-Material icon theme
-TailwindCSS IntelliSense
-Tailwind Docs
-Twig Language 2
-```
-
-## Jeu
-
-Le code source du jeu est disponible dans le dossier `card_game`
+## Features - Pages
+- Login System
+![App Screenshot](./readme/login.PNG)
+![App Screenshot](./readme/register.PNG)
+- List of courses
+![App Screenshot](./readme/list.gif)
+- Module
+![App Screenshot](./readme/module.gif)
